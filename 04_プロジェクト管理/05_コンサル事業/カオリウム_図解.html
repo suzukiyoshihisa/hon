@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カオリウム キャッシュポイント 図解 | 株式会社HON</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+      background: #f7f5f2;
+      color: #2c2c2c;
+      padding: 40px 24px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    header .label {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.05em;
+    }
+    header p {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 0 auto 48px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .section-title .badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: #2c2c2c;
+      color: #fff;
+    }
+    .section-title h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+
+    .note {
+      background: #faf8f5;
+      border-left: 3px solid #c9a97a;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .mermaid {
+      display: flex;
+      justify-content: center;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    .sub-label {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .revenue-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    .revenue-table th {
+      background: #2c2c2c;
+      color: #fff;
+      padding: 10px 16px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+    .revenue-table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid #eee;
+    }
+    .revenue-table tr:last-child td {
+      border-bottom: none;
+      font-weight: 700;
+      background: #faf8f5;
+    }
+    .revenue-table .売上 { color: #2a7a4b; }
+    .revenue-table .コスト { color: #c0392b; }
+    .revenue-table .粗利 { color: #e67e22; }
+
+    .menu-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    .menu-table th {
+      background: #2c2c2c;
+      color: #fff;
+      padding: 10px 16px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+    .menu-table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+    .menu-table tr:last-child td {
+      border-bottom: none;
+    }
+    .menu-table td:first-child {
+      font-weight: 700;
+      white-space: nowrap;
+      color: #5a7aae;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="label">株式会社HON｜コンサル事業</div>
+  <h1>カオリウム キャッシュポイント 図解</h1>
+  <p>法人でのワークショップにつなげるための3つの施策</p>
+</header>
+
+<!-- OVERVIEW -->
+<div class="section">
+  <div class="section-title">
+    <span class="badge">OVERVIEW</span>
+    <h2>全体の収益フロー</h2>
+  </div>
+  <div class="card">
+    <div class="note">
+      📌 3つの施策は独立していない。YouTube Liveで認知・関係を築き、トークセッションに誘導し、そこから法人契約につなげる<strong>一本の導線</strong>。
+    </div>
+    <div class="mermaid">
+flowchart LR
+  YT("📺 施策①\nYouTube Live\n毎週火曜\n──────\n直接収益なし")
+  WS("🎯 施策②\nトークセッション\n＋交流会\n──────\n約30万円")
+  Corp("🏢 施策③\n法人契約\n香り会議・法人WS\n──────\n本命の収益")
+
+  YT -->|"認知獲得・関係構築\nトークセッションへ誘導"| WS
+  WS -->|"「自社でも\nやりませんか？」"| Corp
+
+  style YT fill:#f0ede8,stroke:#c9a97a,color:#2c2c2c
+  style WS fill:#e8f0ed,stroke:#5a9e7a,color:#2c2c2c
+  style Corp fill:#e8edf5,stroke:#5a7aae,color:#2c2c2c
+    </div>
+  </div>
+</div>
+
+<!-- 施策① YouTube Live -->
+<div class="section">
+  <div class="section-title">
+    <span class="badge">施策①</span>
+    <h2>YouTube Live（認知・集客チャネル）</h2>
+  </div>
+  <div class="two-col">
+
+    <div class="card">
+      <div class="note">👥 出演者の役割分担</div>
+      <div class="mermaid">
+flowchart TD
+  king["🎙 kINGさん\nMagnet lab ホスト・主催"]
+  guest["👤 ゲストさん\nカオリウムで○○を言語化"]
+  suzuki["🤝 鈴木\nカオリウム紹介・解説"]
+  tazu["💻 たずさん\n配信設定・技術運営"]
+
+  king --- guest
+  king --- suzuki
+  king --- tazu
+
+  style king fill:#f0ede8,stroke:#c9a97a,color:#2c2c2c
+  style guest fill:#faf9f7,stroke:#ddd,color:#2c2c2c
+  style suzuki fill:#faf9f7,stroke:#ddd,color:#2c2c2c
+  style tazu fill:#faf9f7,stroke:#ddd,color:#2c2c2c
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="note">📋 配信の流れ</div>
+      <div class="mermaid">
+flowchart TD
+  c1["① 挨拶・自己紹介\n視聴者との関係づくり"]
+  c2["② カオリウム紹介\n毎回説明・新規視聴者向け"]
+  c3["③ テーマ体験\nカオリウムで○○を言語化"]
+  c4["④ 雑談・深掘り\n共感・信頼の醸成"]
+  c5["⑤ 食事会のご案内\nトークセッションへ誘導"]
+
+  c1 --> c2 --> c3 --> c4 --> c5
+
+  style c5 fill:#e8f0ed,stroke:#5a9e7a,color:#2c2c2c
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 施策② トークセッション＋交流会 -->
+<div class="section">
+  <div class="section-title">
+    <span class="badge">施策②</span>
+    <h2>エグゼクティブ向けトークセッション＋交流会（直接収益＋法人開拓）</h2>
+  </div>
+  <div class="card">
+    <div class="note">
+      💡 目的は<strong>法人契約への入口をつくること</strong>。参加者のネットワーキングを促しながら、次の施策③へつなげる。
+    </div>
+
+    <div class="two-col" style="margin-bottom: 28px;">
+      <div>
+        <p class="sub-label">収益構造</p>
+        <table class="revenue-table">
+          <tr><th>区分</th><th>項目</th><th>金額</th></tr>
+          <tr><td class="売上">売上</td><td>参加費（約10名）</td><td>3万円 × 10名<br><strong>＝ 約30万円</strong></td></tr>
+          <tr><td class="コスト">コスト</td><td>セントマティック<br>（機材・運営）</td><td>一</td></tr>
+          <tr><td class="粗利">粗利</td><td colspan="2">30万円（仮）</td></tr>
+        </table>
+      </div>
+      <div>
+        <p class="sub-label">出演者の役割分担</p>
+        <div class="mermaid">
+flowchart TD
+  king2["🎙 kINGさん\nファシリテーター（主催）"]
+  tanomoto["👨‍💼 谷本さん\nファシリテーター（主催）"]
+  guest2["👤 ゲストさん\nテーマを言語化する体験を見せる役"]
+  suzuki2["🤝 鈴木（HON）\nサポート役"]
+
+  king2 --- tanomoto
+  tanomoto --- guest2
+  tanomoto --- suzuki2
+
+  style king2 fill:#e8edf5,stroke:#5a7aae,color:#2c2c2c
+  style tanomoto fill:#e8edf5,stroke:#5a7aae,color:#2c2c2c
+  style guest2 fill:#faf9f7,stroke:#ddd,color:#2c2c2c
+        </div>
+      </div>
+    </div>
+
+    <p class="sub-label">法人契約への営業導線</p>
+    <div class="mermaid">
+flowchart TD
+  start(["トークセッション参加\nエグゼクティブ（個人）"])
+  fan["谷本さんのファン"]
+  other["その他の参加者"]
+  tprop["谷本さんが\n直接フォロー・法人提案"]
+  sprop["サポート役が\nフォロー・法人提案"]
+  propose["「ご自身の会社でも\n体験会を開きませんか？」"]
+  material["会社説明資料\n作成・送付"]
+  kaori["香り会議\n法人向けWS実施"]
+  followup["顧客管理・継続フォロー"]
+
+  start --> fan
+  start --> other
+  fan --> tprop
+  other --> sprop
+  tprop --> propose
+  sprop --> propose
+  propose --> material
+  propose --> kaori
+  material --> followup
+  kaori --> followup
+
+  style start fill:#e8f0ed,stroke:#5a9e7a,color:#2c2c2c
+  style propose fill:#f0ede8,stroke:#c9a97a,color:#2c2c2c
+  style followup fill:#e8edf5,stroke:#5a7aae,color:#2c2c2c
+    </div>
+  </div>
+</div>
+
+<!-- 施策③ 法人契約への転換 -->
+<div class="section">
+  <div class="section-title">
+    <span class="badge">施策③</span>
+    <h2>法人契約への転換（本命の収益）</h2>
+  </div>
+  <div class="card">
+    <div class="note">
+      🏢 ここが収益の本命。施策①②はこの契約獲得のための導線として機能する。
+    </div>
+
+    <div style="margin-bottom: 28px;">
+      <p class="sub-label">収益構造（仮）</p>
+      <table class="revenue-table">
+        <tr><th>区分</th><th>項目</th><th>金額</th></tr>
+        <tr><td class="売上">売上</td><td>参加費</td><td>¥20,000 / 人<br><small style="color:#888;">松本興産様の実績より</small></td></tr>
+      </table>
+    </div>
+
+    <div class="two-col" style="margin-bottom: 28px;">
+      <div>
+        <p class="sub-label">提供メニュー</p>
+        <table class="menu-table">
+          <tr><th>メニュー</th><th>内容</th></tr>
+          <tr>
+            <td>香り会議</td>
+            <td>企業の会議やチームビルディングにカオリウムを組み込んだワークショップ</td>
+          </tr>
+          <tr>
+            <td>法人向けWS</td>
+            <td>企業理念・ブランド構築・組織の相互理解を目的にした本格ワークショップ</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <p class="sub-label">営業の流れ</p>
+        <div class="mermaid">
+flowchart TD
+  entry(["施策②の参加者\n（エグゼクティブ個人）"])
+  propose["「ご自身の会社でも\n体験会を開きませんか？」"]
+  material["会社説明資料\n作成・送付"]
+  kaori["香り会議\n法人向けWS実施"]
+  contract["継続契約・\n顧客管理（フォローアップ）"]
+
+  entry --> propose
+  propose --> material
+  material --> kaori
+  kaori --> contract
+
+  style entry fill:#e8f0ed,stroke:#5a9e7a,color:#2c2c2c
+  style contract fill:#e8edf5,stroke:#5a7aae,color:#2c2c2c
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  株式会社HON｜カオリウム プロジェクト｜最終更新: 2026-03-03
+</footer>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      fontFamily: 'Hiragino Sans, Noto Sans JP, sans-serif',
+      fontSize: '14px',
+      primaryColor: '#f0ede8',
+      primaryTextColor: '#2c2c2c',
+      primaryBorderColor: '#c9a97a',
+      lineColor: '#999',
+      secondaryColor: '#faf8f5',
+      tertiaryColor: '#fff',
+    },
+    flowchart: {
+      curve: 'basis',
+      padding: 20,
+    }
+  });
+</script>
+</body>
+</html>
