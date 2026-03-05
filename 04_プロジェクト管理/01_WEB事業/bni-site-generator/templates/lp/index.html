@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{PAGE_TITLE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: {{COLOR_PRIMARY}};
+      --color-accent:  {{COLOR_ACCENT}};
+      --color-light:   {{COLOR_LIGHT}};
+      --color-dark:    {{COLOR_DARK}};
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: #333; overflow-x: hidden; }
+
+    /* ===== Scroll Animation ===== */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(32px);
+      transition:
+        opacity  0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    [data-animate].is-visible  { opacity: 1; transform: none; }
+    [data-animate][data-delay="1"] { transition-delay: 0.08s; }
+    [data-animate][data-delay="2"] { transition-delay: 0.16s; }
+    [data-animate][data-delay="3"] { transition-delay: 0.24s; }
+    [data-animate][data-delay="4"] { transition-delay: 0.32s; }
+
+    /* ===== Hero ===== */
+    .hero-wrap {
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 56px), 0 100%);
+      padding-bottom: 56px;
+    }
+    .hero-section {
+      position: relative;
+      background-color: var(--color-dark);
+      background-image: url({{HERO_BG_IMAGE_URL}});
+      background-size: cover;
+      background-position: center top;
+    }
+    @media (min-width: 768px) {
+      .hero-section { background-attachment: fixed; }
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(150deg,
+        color-mix(in srgb, var(--color-primary) 90%, black) 0%,
+        color-mix(in srgb, var(--color-dark) 82%, black) 100%);
+      opacity: 0.88;
+    }
+    @supports not (color: color-mix(in srgb, red 50%, blue)) {
+      .hero-overlay { background: linear-gradient(150deg, var(--color-primary) 0%, var(--color-dark) 100%); }
+    }
+    .hero-content { position: relative; z-index: 1; }
+
+    /* ===== Section title ===== */
+    .section-title { display: inline-block; }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 48px; height: 3px;
+      background: var(--color-primary);
+      margin: 14px auto 0;
+    }
+
+    /* ===== Backgrounds ===== */
+    .bg-light  { background-color: var(--color-light); }
+    .bg-primary-soft { background: linear-gradient(160deg, var(--color-light) 0%, #fff 100%); }
+
+    /* ===== Buttons ===== */
+    .btn-primary {
+      background-color: var(--color-primary); color: white;
+      transition: filter .2s, transform .2s;
+    }
+    .btn-primary:hover { filter: brightness(1.08); transform: translateY(-2px); }
+    .btn-white {
+      background-color: white; color: var(--color-primary);
+      transition: background-color .2s, transform .2s;
+    }
+    .btn-white:hover { background-color: var(--color-light); transform: translateY(-2px); }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.7); color: white;
+      transition: all .2s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: white; }
+
+    /* ===== Card hover ===== */
+    .card-hover { transition: transform .28s ease, box-shadow .28s ease; }
+    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 48px rgba(0,0,0,0.12); }
+
+    /* ===== Strength ===== */
+    .strength-icon { background-color: var(--color-light); color: var(--color-primary); }
+
+    /* ===== Services ===== */
+    .service-image-wrap { height: 220px; overflow: hidden; background-color: var(--color-light); }
+    .service-image {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .35s ease;
+    }
+    .card-hover:hover .service-image { transform: scale(1.06); }
+    .service-img-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, var(--color-light), var(--color-accent));
+      opacity: 0.5;
+    }
+    .service-title { color: var(--color-primary); }
+
+    /* ===== Pricing ===== */
+    .pricing-section { background: linear-gradient(170deg, var(--color-light) 0%, white 60%); }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    @media (min-width: 768px) {
+      .pricing-grid { grid-template-columns: repeat(3, 1fr); align-items: start; }
+    }
+    .pricing-card {
+      border: 2px solid #eee; border-radius: 24px;
+      padding: 44px 28px 32px; position: relative;
+      text-align: center; background: white;
+      transition: transform .28s, box-shadow .28s;
+    }
+    .pricing-card:hover { transform: translateY(-8px); box-shadow: 0 24px 56px rgba(0,0,0,0.1); }
+    .pricing-card--highlight {
+      border-color: var(--color-primary);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    @media (min-width: 768px) {
+      .pricing-card--highlight { transform: scale(1.04); }
+      .pricing-card--highlight:hover { transform: scale(1.04) translateY(-8px); }
+    }
+    .pricing-tag {
+      position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+      background: var(--color-primary); color: white;
+      font-size: .7rem; font-weight: 700;
+      padding: 5px 20px; border-radius: 100px;
+      white-space: nowrap; letter-spacing: .05em;
+    }
+    .pricing-name  { font-size: 1.05rem; font-weight: 700; color: #444; margin-bottom: 8px; }
+    .pricing-price { font-size: 2.4rem; font-weight: 900; color: var(--color-primary); margin: 14px 0 4px; line-height: 1; }
+    .pricing-desc  { font-size: .85rem; color: #777; margin-bottom: 18px; line-height: 1.7; }
+    .pricing-divider { border: none; border-top: 1px solid #f0f0f0; margin-bottom: 18px; }
+    .pricing-features { list-style: none; padding: 0; text-align: left; margin-bottom: 28px; }
+    .pricing-feature {
+      font-size: .82rem; color: #555;
+      padding: 5px 0; display: flex; gap: 10px; align-items: flex-start;
+    }
+    .pricing-feature-icon { color: var(--color-primary); font-weight: 700; flex-shrink: 0; }
+    .pricing-btn {
+      display: block; padding: 14px 24px;
+      border-radius: 100px; font-weight: 700; font-size: .9rem; text-align: center;
+    }
+    .btn-outline-color {
+      border: 2px solid var(--color-primary); color: var(--color-primary);
+      transition: all .2s;
+    }
+    .btn-outline-color:hover { background: var(--color-primary); color: white; }
+
+    /* ===== EC ===== */
+    .ec-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    @media (min-width: 768px) { .ec-grid { grid-template-columns: repeat(4, 1fr); } }
+    .ec-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid #ececec; }
+    .ec-image-wrap { height: 190px; overflow: hidden; background-color: var(--color-light); }
+    .ec-image { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+    .ec-card:hover .ec-image { transform: scale(1.06); }
+    .ec-body { padding: 14px 16px 16px; }
+    .ec-name  { font-weight: 700; font-size: .875rem; margin-bottom: 5px; color: #333; }
+    .ec-desc  { font-size: .75rem; color: #888; margin-bottom: 12px; line-height: 1.6; }
+    .ec-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .ec-price { font-size: 1.1rem; font-weight: 900; color: var(--color-primary); }
+    .ec-btn   { font-size: .7rem; padding: 7px 14px; border-radius: 100px; font-weight: 700; }
+    .sample-badge {
+      display: inline-block;
+      background: #f59e0b; color: white;
+      font-size: .62rem; font-weight: 700;
+      padding: 4px 12px; border-radius: 100px; letter-spacing: .05em;
+    }
+
+    /* ===== Testimonials ===== */
+    .testimonials-section { background-color: var(--color-light); }
+    .testimonial-card {
+      background: white; border-radius: 20px;
+      padding: 28px; box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+      height: 100%; display: flex; flex-direction: column;
+    }
+    .testimonial-quote {
+      font-size: 3.5rem; color: var(--color-primary); opacity: .18;
+      line-height: .9; margin-bottom: -4px; font-family: Georgia, serif; user-select: none;
+    }
+    .testimonial-text { color: #555; font-size: .875rem; line-height: 2; flex: 1; margin-bottom: 18px; }
+    .testimonial-footer { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 46px; height: 46px; border-radius: 50%;
+      background-color: var(--color-primary); color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1.1rem; flex-shrink: 0;
+    }
+    .testimonial-name    { font-weight: 700; font-size: .875rem; color: #333; }
+    .testimonial-company { font-size: .73rem; color: #aaa; margin-top: 2px; }
+    .swiper-button-next, .swiper-button-prev { color: var(--color-primary) !important; }
+    .swiper-pagination-bullet-active { background: var(--color-primary) !important; }
+    .testimonial-swiper { padding: 8px 44px 64px !important; }
+
+    /* ===== CTA ===== */
+    .cta-section { background-color: var(--color-primary); }
+
+    /* ===== Contact ===== */
+    .contact-icon-wrap {
+      width: 44px; height: 44px; border-radius: 50%;
+      background-color: var(--color-light);
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 1.1rem;
+    }
+    .contact-link { transition: color .2s; }
+    .contact-link:hover { color: var(--color-primary); }
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- ========== HERO ========== -->
+  <div class="hero-wrap">
+    <section class="hero-section text-white">
+      <div class="hero-overlay"></div>
+      <div class="hero-content py-28 md:py-36 px-6">
+        <div class="max-w-6xl mx-auto">
+          <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+
+            <!-- Text -->
+            <div class="flex-1 text-center md:text-left">
+              <p class="text-xs font-bold tracking-widest uppercase mb-5 opacity-65" data-animate>
+                {{PROFESSION}}
+              </p>
+              <h1 class="text-5xl md:text-6xl font-black mb-6 leading-tight" data-animate data-delay="1">
+                {{TAGLINE}}
+              </h1>
+              <p class="text-xl font-medium opacity-90 mb-1" data-animate data-delay="2">{{MEMBER_NAME}}</p>
+              <p class="text-sm opacity-55 mb-8" data-animate data-delay="2">{{COMPANY_NAME}}</p>
+              <p class="text-base opacity-85 leading-relaxed max-w-lg mb-12" data-animate data-delay="3">
+                {{HERO_SUBTEXT}}
+              </p>
+              <div class="flex flex-wrap gap-4 justify-center md:justify-start" data-animate data-delay="4">
+                <a href="#contact" class="btn-white inline-block font-bold px-10 py-4 rounded-full shadow-xl text-base">
+                  {{CTA_BUTTON_TEXT}}
+                </a>
+                <a href="#services" class="btn-outline inline-block font-bold px-10 py-4 rounded-full text-base">
+                  サービスを見る
+                </a>
+              </div>
+            </div>
+
+            <!-- Profile image -->
+            <div class="flex-shrink-0" data-animate data-delay="2">
+              <img
+                src="{{PROFILE_IMAGE_URL}}"
+                alt="{{MEMBER_NAME}}"
+                class="w-52 h-52 rounded-full object-cover border-4 border-white shadow-2xl"
+                onerror="this.style.display='none'"
+              >
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ========== STRENGTHS ========== -->
+  <section class="bg-white py-28 px-6 -mt-14 pt-28">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-18">
+        <h2 class="text-3xl font-bold text-gray-700 section-title" data-animate>選ばれる3つの理由</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+        <div class="card-hover text-center p-10 rounded-3xl border border-gray-100 shadow-sm bg-white" data-animate data-delay="1">
+          <div class="strength-icon w-16 h-16 rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6">1</div>
+          <h3 class="font-bold text-xl mb-3">{{STRENGTH_1_TITLE}}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">{{STRENGTH_1_TEXT}}</p>
+        </div>
+        <div class="card-hover text-center p-10 rounded-3xl border border-gray-100 shadow-sm bg-white" data-animate data-delay="2">
+          <div class="strength-icon w-16 h-16 rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6">2</div>
+          <h3 class="font-bold text-xl mb-3">{{STRENGTH_2_TITLE}}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">{{STRENGTH_2_TEXT}}</p>
+        </div>
+        <div class="card-hover text-center p-10 rounded-3xl border border-gray-100 shadow-sm bg-white" data-animate data-delay="3">
+          <div class="strength-icon w-16 h-16 rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6">3</div>
+          <h3 class="font-bold text-xl mb-3">{{STRENGTH_3_TITLE}}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">{{STRENGTH_3_TEXT}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section id="services" class="bg-light py-28 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-700 section-title" data-animate>サービス内容</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-sm" data-animate data-delay="1">
+          <div class="service-image-wrap">
+            <img src="{{SERVICE_1_IMAGE_URL}}" alt="{{SERVICE_1_NAME}}" class="service-image"
+              onerror="this.parentElement.innerHTML='<div class=\'service-img-placeholder\'></div>'">
+          </div>
+          <div class="p-8">
+            <h3 class="font-bold text-lg service-title mb-3">{{SERVICE_1_NAME}}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{{SERVICE_1_DESC}}</p>
+          </div>
+        </div>
+        <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-sm" data-animate data-delay="2">
+          <div class="service-image-wrap">
+            <img src="{{SERVICE_2_IMAGE_URL}}" alt="{{SERVICE_2_NAME}}" class="service-image"
+              onerror="this.parentElement.innerHTML='<div class=\'service-img-placeholder\'></div>'">
+          </div>
+          <div class="p-8">
+            <h3 class="font-bold text-lg service-title mb-3">{{SERVICE_2_NAME}}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{{SERVICE_2_DESC}}</p>
+          </div>
+        </div>
+        <div class="card-hover bg-white rounded-3xl overflow-hidden shadow-sm" data-animate data-delay="3">
+          <div class="service-image-wrap">
+            <img src="{{SERVICE_3_IMAGE_URL}}" alt="{{SERVICE_3_NAME}}" class="service-image"
+              onerror="this.parentElement.innerHTML='<div class=\'service-img-placeholder\'></div>'">
+          </div>
+          <div class="p-8">
+            <h3 class="font-bold text-lg service-title mb-3">{{SERVICE_3_NAME}}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{{SERVICE_3_DESC}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  {{PRICING_SECTION}}
+
+  <!-- ========== PROFILE ========== -->
+  <section class="bg-white py-28 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-700 section-title" data-animate>{{ABOUT_TITLE}}</h2>
+      </div>
+      <div class="flex flex-col md:flex-row items-center gap-14">
+        <img
+          src="{{PROFILE_IMAGE_URL}}"
+          alt="{{MEMBER_NAME}}"
+          class="w-44 h-44 rounded-full object-cover shadow-xl flex-shrink-0"
+          onerror="this.style.display='none'"
+          data-animate
+        >
+        <div data-animate data-delay="1">
+          <p class="text-gray-700 leading-loose mb-5 text-base">{{ABOUT_TEXT}}</p>
+          <p class="text-gray-400 text-sm leading-relaxed">{{PROFILE_CAREER}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EC PRODUCTS ========== -->
+  {{EC_SECTION}}
+
+  <!-- ========== TESTIMONIALS ========== -->
+  {{TESTIMONIALS_SECTION}}
+
+  <!-- ========== CTA ========== -->
+  <section class="cta-section py-28 px-6 text-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight" data-animate>{{CTA_HEADLINE}}</h2>
+      <p class="opacity-85 mb-12 leading-relaxed text-lg" data-animate data-delay="1">{{CTA_SUBTEXT}}</p>
+      <a href="#contact" class="btn-white inline-block font-bold px-14 py-5 rounded-full shadow-2xl text-lg" data-animate data-delay="2">
+        {{CTA_BUTTON_TEXT}}
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="bg-gray-50 py-28 px-6">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-700 section-title" data-animate>お問い合わせ</h2>
+      </div>
+      <div class="space-y-6" data-animate data-delay="1">
+        <div class="flex items-center gap-4 justify-center">
+          <span class="contact-icon-wrap">📞</span>
+          <a href="tel:{{PHONE}}" class="contact-link text-base text-gray-600">{{PHONE}}</a>
+        </div>
+        <div class="flex items-center gap-4 justify-center">
+          <span class="contact-icon-wrap">✉️</span>
+          <a href="mailto:{{EMAIL}}" class="contact-link text-base text-gray-600">{{EMAIL}}</a>
+        </div>
+        <div class="flex items-center gap-4 justify-center">
+          <span class="contact-icon-wrap">🌐</span>
+          <a href="{{WEBSITE_URL}}" target="_blank" rel="noopener" class="contact-link text-base text-gray-600">{{WEBSITE_URL}}</a>
+        </div>
+        <div class="flex items-center gap-4 justify-center">
+          <span class="contact-icon-wrap">📍</span>
+          <span class="text-base text-gray-600">{{LOCATION}}</span>
+        </div>
+      </div>
+      <p class="mt-14 text-center text-xs text-gray-400">{{COMPANY_NAME}} | {{MEMBER_NAME}}</p>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    // ── Scroll animation ──────────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+    // Hero elements play immediately on load
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.hero-content [data-animate]').forEach((el, i) => {
+        setTimeout(() => el.classList.add('is-visible'), 150 + i * 110);
+      });
+    });
+  </script>
+</body>
+</html>
