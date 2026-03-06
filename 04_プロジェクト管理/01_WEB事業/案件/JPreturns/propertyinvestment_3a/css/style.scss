@@ -860,9 +860,9 @@ main {
 
 .kv {
   background-repeat: no-repeat;
-  background-size: cover; // または contain
+  background-size: cover;
   background-position: center top;
-  min-height: 88vh;
+  min-height: calc(100vh - 120px);
   position: relative;
   @include pc {
     background-image: url(../img/bg.png); // ←PC用背景
@@ -871,6 +871,7 @@ main {
     background-image: url(../img/bg.png), url(../img/bg.png); // ←SP用背景
     background-position: center top;
     background-size: cover;
+    min-height: calc(100vh - 120px);
   }
 }
 
@@ -909,7 +910,7 @@ main {
     margin-top: -40px;
   }
   @include sp {
-
+    padding: 0 5px;
   }
 
   & img {
@@ -1085,23 +1086,32 @@ main {
 }
 .kv_gift2_txt {
   color: #4c4c4c;
-
+  margin: 0 auto;
+  background-color: #f4f2e3;
   @include pc {
     margin: divceil(20, 10, rem) auto;
-    // width: divceil(1100, 10, rem);
     display: flex;
-    justify-content: right;
+    justify-content: center;
     font-size: divceil(12, 10, rem);
     line-height: divceil(20, 10, rem);
-    // transform: translateX(divceil(20, 10, rem));
   }
 
   @include sp {
-    margin: divceil(20, 10, rem) auto 0;
-    width: divceil(658, 10, rem);
+    width: 100%;
     font-size: divceil(20, 10, rem);
     line-height: divceil(34, 10, rem);
     text-align: left;
+  }
+}
+
+.kv_gift2_txt_inner {
+  @include pc {
+    margin-top: 20px;
+    width: divceil(1100, 10, rem);
+  }
+  @include sp {
+    width: 100%;
+    padding: 10px 15px;
   }
 }
 
