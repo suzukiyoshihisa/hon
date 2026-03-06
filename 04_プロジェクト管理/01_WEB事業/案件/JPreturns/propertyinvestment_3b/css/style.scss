@@ -568,31 +568,26 @@ main {
 }
 
 .dialog_open {
-  
-  border: none;
-  border-radius: 100vmax;
-  //box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
   font-weight: 700;
   color: #000;
   cursor: pointer;
-  position: absolute;
+  position: relative;
 
   @include pc {
     //width: divceil(10, 10, rem);
     height: divceil(20, 10, rem);
     font-size: divceil(16, 10, rem);
-    top:  divceil(15, 10, rem);
-    right: divceil(690, 10, rem);
     z-index: 200;
+    text-align: right;
+    right: divceil(20, 10, rem);
+    top: divceil(35, 10, rem);
   }
 
   @include sp {
-    width: divceil(170, 10, rem);
-    height: divceil(5, 10, rem);
     font-size: divceil(18, 10, rem);
-    transform: translate(divceil(-300, 10, rem), divceil(245, 10, rem));
-     top:  divceil(-225, 10, rem);
-    right: divceil(-270, 10, rem);
+    text-align: right;
+    right: divceil(30, 10, rem);
+    top: divceil(45, 10, rem);
     z-index: 200;
   }
 
@@ -910,9 +905,10 @@ main {
 
       @include pc{
          background-image: url(../img/hedear-back.png);
-            background-repeat: no-repeat;
+          background-repeat: no-repeat;
           background-size: 100%;
           z-index: 1;
+          height: 75px;
       }
 
 

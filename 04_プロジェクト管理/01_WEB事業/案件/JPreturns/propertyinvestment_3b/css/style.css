@@ -495,30 +495,27 @@ main {
 }
 
 .dialog_open {
-  border: none;
-  border-radius: 100vmax;
   font-weight: 700;
   color: #000;
   cursor: pointer;
-  position: absolute;
+  position: relative;
 }
 @media screen and (min-width: 769px) {
   .dialog_open {
     height: 2rem;
     font-size: 1.6rem;
-    top: 1.5rem;
-    right: 69rem;
     z-index: 200;
+    text-align: right;
+    right: 2rem;
+    top: 3.5rem;
   }
 }
 @media screen and (max-width: 768px) {
   .dialog_open {
-    width: 17rem;
-    height: 0.5rem;
     font-size: 1.8rem;
-    transform: translate(-30rem, 24.5rem);
-    top: -22.5rem;
-    right: -27rem;
+    text-align: right;
+    right: 3rem;
+    top: 4.5rem;
     z-index: 200;
   }
 }
@@ -815,6 +812,7 @@ main {
     background-repeat: no-repeat;
     background-size: 100%;
     z-index: 1;
+    height: 75px;
   }
 }
 @media screen and (max-width: 768px) {

@@ -252,13 +252,9 @@ main {
     justify-content: center;
   }
 }
-.foot .company_name {
-  width: 32.7rem;
-  height: auto;
-}
 @media screen and (min-width: 769px) {
   .foot .company_name {
-    width: 28.7rem;
+    width: 100%;
   }
 }
 @media screen and (max-width: 768px) {
@@ -476,30 +472,19 @@ main {
 }
 
 .dialog_open {
-  background-color: #fff;
-  border: none;
-  border-radius: 100vmax;
-  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
   font-weight: 700;
   color: #000;
   cursor: pointer;
-  position: absolute;
+  position: relative;
 }
 @media screen and (min-width: 769px) {
   .dialog_open {
-    width: 21rem;
-    height: 4.6rem;
     font-size: 1.6rem;
-    bottom: 14.7rem;
-    right: 25rem;
   }
 }
 @media screen and (max-width: 768px) {
   .dialog_open {
-    width: 26rem;
-    height: 7rem;
     font-size: 2.4rem;
-    transform: translate(-30rem, 24.5rem);
   }
 }
 .dialog_open > span {
@@ -739,6 +724,14 @@ main {
     background-image: url(../img/cta-consult-btn-sp.png);
   }
 }
+
+@media screen and (max-width: 768px) {
+  .kv_cta > a, .intro_cta > a, .consult_cta > a {
+    width: 100%;
+    height: auto;
+  }
+}
+
 .cta_fixed {
   width: 100%;
   position: fixed;
@@ -816,7 +809,7 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
-  min-height: 100vh;
+  min-height: 88vh;
   position: relative;
 }
 @media screen and (min-width: 769px) {
@@ -835,6 +828,7 @@ main {
 .kv_wrap {
   margin-inline: auto;
   min-height: inherit;
+  position: relative;
 }
 @media screen and (min-width: 769px) {
   .kv_wrap {
@@ -853,37 +847,35 @@ main {
 @media screen and (min-width: 769px) {
   .kv_logo {
     width: 23.3rem;
+    padding-top: 4rem;
+    margin-left: 11.5rem;
   }
 }
 @media screen and (max-width: 768px) {
   .kv_logo {
     width: 25.4rem;
+    padding-top: 2rem;
+    margin-left: 1.8rem;
   }
 }
 
 .kv_inner {
-  display: grid;
-  min-height: inherit;
-  min-height: 100vh;
+  margin: 0 auto;
 }
 @media screen and (min-width: 769px) {
   .kv_inner {
-    margin: 0 auto;
-    padding-top: 0;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    align-content: center;
-    row-gap: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -40px;
   }
 }
-@media screen and (max-width: 768px) {
-  .kv_inner {
-    padding-top: 0;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    align-content: center;
-    row-gap: 10rem;
-  }
+.kv_inner img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 .kv_img {
@@ -905,60 +897,69 @@ main {
   }
 }
 
-.kv_ttl {
-  height: auto;
-}
-@media screen and (min-width: 769px) {
-  .kv_ttl {
-    width: 56rem;
-    grid-area: 2/1/3/2;
-  }
-}
-@media screen and (max-width: 768px) {
-  .kv_ttl {
-    width: 68.9rem;
-    order: 2;
-  }
-}
-
 .kv_point {
   height: auto;
 }
 @media screen and (min-width: 769px) {
   .kv_point {
     margin: 0;
-    width: 55.9rem;
-    grid-area: auto;
+    width: 60rem;
+    margin-top: 3rem;
+    margin-bottom: 12.8rem;
   }
 }
 @media screen and (max-width: 768px) {
   .kv_point {
     margin: 0 auto 0;
     width: 61.5rem;
-    order: 1;
-    z-index: 4;
+    margin-top: 4rem;
+    margin-bottom: 9.2rem;
   }
 }
 
-.kv_caption {
-  text-align: justify;
-  letter-spacing: 0.03em;
+.kv_ttl {
+  height: auto;
 }
 @media screen and (min-width: 769px) {
-  .kv_caption {
-    font-size: 1.2rem;
-    margin: 1rem auto 0;
-    width: 55.9rem;
-    grid-area: 3/1/4/2;
+  .kv_ttl {
+    width: 60rem;
+    margin-bottom: 9.5rem;
   }
 }
 @media screen and (max-width: 768px) {
-  .kv_caption {
-    font-size: 2rem;
-    margin: 2rem auto 0;
-    width: 61.5rem;
-    order: 3;
-    z-index: 4;
+  .kv_ttl {
+    margin-bottom: 12.8rem;
+  }
+}
+
+.kv_buttonList {
+  position: relative;
+}
+@media screen and (min-width: 769px) {
+  .kv_buttonList {
+    width: 98rem;
+  }
+}
+.kv_buttonList > a:hover {
+  opacity: 0.9;
+}
+
+.dialog_open {
+  position: relative;
+  display: inline-block;
+  z-index: 200;
+}
+@media screen and (min-width: 769px) {
+  .dialog_open {
+    top: 3.6rem;
+    left: 31rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .dialog_open {
+    position: absolute;
+    top: 2rem;
+    right: 3.5rem;
   }
 }
 
@@ -1564,7 +1565,7 @@ main {
 }
 @media screen and (max-width: 768px) {
   .consult_wrap {
-    justify-content: flex-start;
+    width: 100%;
   }
 }
 
@@ -1619,51 +1620,30 @@ main {
 }
 @media screen and (max-width: 768px) {
   .consult_desc {
-    width: 60%;
     row-gap: 1.5rem;
     top: 0rem;
+    width: 60%;
   }
 }
 
 .consult_txt {
   height: auto;
-  margin-bottom: 10px;
-}
-.consult_txt .txt_m {
-  font-weight: bold;
 }
 @media screen and (min-width: 769px) {
   .consult_txt {
-    font-size: 3.3rem;
+    width: 50rem;
+    margin-bottom: 27px;
   }
 }
 @media screen and (max-width: 768px) {
   .consult_txt {
-    font-size: 2.2rem;
-  }
-}
-.consult_txt .txt_l {
-  font-weight: bold;
-}
-@media screen and (min-width: 769px) {
-  .consult_txt .txt_l {
-    font-size: 4.5rem;
-  }
-}
-@media screen and (max-width: 768px) {
-  .consult_txt .txt_l {
-    font-size: 4.2rem;
-  }
-}
-@media screen and (max-width: 768px) {
-  .consult_txt {
-    width: 33.7rem;
+    width: 28.8rem;
   }
 }
 
 @media screen and (min-width: 769px) {
   .consult_cta.-pc > a {
-    width: 45.6rem;
+    width: 50rem;
   }
 }
 @media screen and (max-width: 768px) {
@@ -1681,7 +1661,6 @@ main {
 }
 @media screen and (max-width: 768px) {
   .consult_cta.-sp > a {
-    width: 100%;
     height: 10.5rem;
   }
   .consult_cta.-sp > a::after {

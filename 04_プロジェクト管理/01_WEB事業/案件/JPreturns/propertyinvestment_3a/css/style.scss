@@ -306,14 +306,9 @@ main {
     }
   }
 
-
-
   .company_name {
-    width: divceil(327, 10, rem);
-    height: auto;
-
      @include pc {
-      width: divceil(287, 10, rem);
+      width: 100%;
     }
 
 
@@ -544,28 +539,17 @@ main {
 }
 
 .dialog_open {
-  background-color: #fff;
-  border: none;
-  border-radius: 100vmax;
-  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
   font-weight: 700;
   color: #000;
   cursor: pointer;
-  position: absolute;
+  position: relative;
 
   @include pc {
-    width: divceil(210, 10, rem);
-    height: divceil(46, 10, rem);
     font-size: divceil(16, 10, rem);
-    bottom: divceil(147, 10, rem);
-    right: divceil(250, 10, rem);
   }
 
   @include sp {
-    width: divceil(260, 10, rem);
-    height: divceil(70, 10, rem);
     font-size: divceil(24, 10, rem);
-    transform: translate(divceil(-300, 10, rem), divceil(245, 10, rem));
   }
 
   >span {
@@ -796,16 +780,15 @@ main {
     > a {
       @include sp {
         background-image: url(../img/cta-consult-btn-sp.png);
-        
-        //background-image: url(../img/cta_btn_sp.png);
-      }
-
-      &::after {
-        @include sp {
-         //background-image: url(../img/cta_btn_hover_sp.png);
-        }
       }
     }
+  }
+}
+
+.kv_cta > a, .intro_cta > a, .consult_cta > a {
+  @include sp {
+    width: 100%;
+    height: auto;
   }
 }
 
@@ -879,7 +862,7 @@ main {
   background-repeat: no-repeat;
   background-size: cover; // または contain
   background-position: center top;
-  min-height: 100vh;
+  min-height: 88vh;
   position: relative;
   @include pc {
     background-image: url(../img/bg.png); // ←PC用背景
@@ -890,9 +873,11 @@ main {
     background-size: cover;
   }
 }
+
 .kv_wrap {
   margin-inline: auto;
   min-height: inherit;
+  position: relative;
   @include pc {
     width: divceil($pcMax, 10, rem);
   }
@@ -904,31 +889,37 @@ main {
   height: auto;
   @include pc {
     width: divceil(233, 10, rem);
+    padding-top: divceil(40, 10, rem);
+    margin-left: divceil(115, 10, rem);
   }
   @include sp {
     width: divceil(254, 10, rem);
+    padding-top: divceil(20, 10, rem);
+    margin-left: divceil(18, 10, rem);
   }
 }
+
 .kv_inner {
-  display: grid;
-  min-height: inherit;
-  min-height: 100vh;
+  margin: 0 auto;
   @include pc {
-    margin: 0 auto;
-    padding-top: 0; // ← padding-topは不要になる
-    grid-template-columns: 1fr;
-    justify-items: center;
-    align-content: center; // ← 全体を縦中央に
-    row-gap: divceil(100, 10, rem); // ← 要素間100px
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -40px;
   }
   @include sp {
-    padding-top: 0; // ← 同様に不要に
-    grid-template-columns: 1fr;
-    justify-items: center;
-    align-content: center;
-    row-gap: divceil(100, 10, rem); // ← SP用100px（rem換算）
+
+  }
+
+  & img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
   }
 }
+
 .kv_img {
   height: auto;
   position: relative;
@@ -940,55 +931,64 @@ main {
   @include sp {
     margin-top: divceil(10, 10, rem);
     width: divceil(366, 10, rem);
-    // grid-area: 2 / 1 / 3 / 2;
     order: 2;
   }
 }
-.kv_ttl {
-  height: auto;
-  @include pc {
-    width: divceil(560, 10, rem);
-    grid-area: 2 / 1 / 3 / 2;
-  }
-  @include sp {
-    width: divceil(689, 10, rem);
-    // grid-area: 1 / 1 / 2 / 2;
-    order: 2;
-  }
-}
+
 .kv_point {
   height: auto;
   @include pc {
     margin: 0;
-    width: divceil(559, 10, rem);
-    grid-area: auto; 
+    width: divceil(600, 10, rem);
+    margin-top: divceil(30, 10, rem);
+    margin-bottom: divceil(128, 10, rem);
   }
   @include sp {
     margin: 0 auto 0; 
     width: divceil(615, 10, rem);
-    // grid-area: 3 / 1 / 4 / 2;
-    order: 1;
-    z-index: 4;
+    margin-top: divceil(40, 10, rem);
+    margin-bottom: divceil(92, 10, rem);
   }
 }
-.kv_caption {
-  text-align: justify;
-  letter-spacing: 0.03em;
+
+.kv_ttl {
+  height: auto;
   @include pc {
-    font-size: divceil(12, 10, rem);
-    margin: divceil(10, 10, rem) auto 0;
-    width: divceil(559, 10, rem);
-    grid-area: 3 / 1 / 4 / 2;
+    width: divceil(600, 10, rem);
+    margin-bottom: divceil(95, 10, rem);
   }
   @include sp {
-    font-size: divceil(20, 10, rem);
-    margin: divceil(20, 10, rem) auto 0;
-    width: divceil(615, 10, rem);
-    // grid-area: 3 / 1 / 4 / 2;
-    order: 3;
-    z-index: 4;
+    margin-bottom: divceil(128, 10, rem);
   }
 }
+
+.kv_buttonList {
+  position: relative;
+  
+  @include pc {
+    width: divceil(980, 10, rem);
+  }
+  >a:hover {
+    opacity: 0.9;
+  }
+}
+
+.dialog_open {
+  position: relative;
+  display: inline-block;
+  z-index: 200;
+  @include pc {
+    top: divceil(36, 10, rem);
+    left: divceil(310, 10, rem);
+  }
+
+  @include sp {
+    position: absolute;
+    top: divceil(20, 10, rem);
+    right: divceil(35, 10, rem);;
+  }
+}
+
 .kv_cta {
   @include pc {
     margin: divceil(2, 10, rem) auto 0;
@@ -1487,23 +1487,17 @@ main {
   height: 100%;
   position: relative;
   display: flex;
-  
   align-items:center;
-  
-    background-color: white;
+  background-color: white;
 
   @include pc {
-    //width: divceil(1400 , 10, rem);
     justify-content: left;
     align-items:flex-start;
     flex-direction: row;
   }
 
   @include sp {
-    justify-content:flex-start;
-    
-
-    //width: divceil(750 - 80, 10, rem);
+    width: 100%;
   }
 }
 .consult-img{
@@ -1553,131 +1547,68 @@ main {
 
 }
 .consult_desc {
- 
   display: flex;
   flex-direction: column;
   justify-content: right;
-  align-items: center;
-  
+  align-items: center; 
   right: 0;
-  
   height: auto;
  
-
-
   @include pc {
-     // width: 60%;
-    // position: absolute;
     row-gap: divceil(0, 10, rem);
     top: divceil(019, 10, rem);
-
     margin: auto;
-    //margin-top: divceil(120, 10, rem);
-    //margin-left: divceil(150, 10, rem);
   }
 
   @include sp {
-    
-    width: divceil(6.00 , 10, %);
     row-gap: divceil(15, 10, rem);
     top: divceil(0, 10, rem);
-    
+    width: 60%;
   }
 }
 
 .consult_txt {
   height: auto;
-  margin-bottom: 10px;
-
-  .txt_m{
-  font-weight : bold;
-
-  }
-    @include pc {
-       font-size: divceil(33, 10, rem);
-    }
-    @include sp {
-      font-size: divceil(22, 10, rem);
-    }
-    
-  .txt_l{
-  
-    font-weight : bold;
-  
-
-    @include pc {
-       font-size: divceil(45, 10, rem);
-
-    }
-
-    @include sp {
-      font-size: divceil(42, 10, rem);
-    }
-    
-
-  }
-
-
-
-
   @include pc {
-    //width: divceil(600, 10, rem);
+    width: divceil(500, 10, rem);
+    margin-bottom: 27px;
   }
-
   @include sp {
-    width: divceil(337, 10, rem);
+    width: divceil(288, 10, rem);
   }
 }
 
 .consult_cta {
-  // PCとSPでボタンレイアウトが異なるため
-
   &.-pc {
-        > a {
-
-        
-        @include pc {
-          width: divceil(456, 10, rem);
-        // height: divceil(67, 10, rem);
-        }
-
-        @include sp {
-          display: none;
-          width: divceil(320, 10, rem);
-          height: divceil(65, 10, rem);
-        }
+    > a {
+      @include pc {
+        width: divceil(500, 10, rem);
       }
-    }  
+
+      @include sp {
+        display: none;
+        width: divceil(320, 10, rem);
+        height: divceil(65, 10, rem);
+      }
+    }
+  }  
 
   &.-sp {
-        > a {
+    > a {
+      @include pc {
+        display: none;
+        width: divceil(456, 10, rem);
+      }
 
-        
-        @include pc {
-             display: none;
-          width: divceil(456, 10, rem);
-        // height: divceil(67, 10, rem);
-        }
+      @include sp {
+        height: divceil(105, 10, rem);
 
-        @include sp {
-       
-          width: divceil(10.0, 10, %);
-          height: divceil(105, 10, rem);
-
-
-          &::after {
-              background-image:none;
-              
-            }
-
+        &::after {
+          background-image:none;
         }
       }
-    }  
-
-
-
-
-  
+    }
+  }
 }
 
 .cta_floating_button {
