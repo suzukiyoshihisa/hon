@@ -252,13 +252,9 @@ main {
     justify-content: center;
   }
 }
-.foot .company_name {
-  width: 32.7rem;
-  height: auto;
-}
 @media screen and (min-width: 769px) {
   .foot .company_name {
-    width: 28.7rem;
+    width: 100%;
   }
 }
 @media screen and (max-width: 768px) {
@@ -1701,51 +1697,30 @@ main {
 }
 @media screen and (max-width: 768px) {
   .consult_desc {
-    width: 60%;
     row-gap: 1.5rem;
     top: 0rem;
+    width: 60%;
   }
 }
 
 .consult_txt {
   height: auto;
-  margin-bottom: 10px;
-}
-.consult_txt .txt_m {
-  font-weight: bold;
 }
 @media screen and (min-width: 769px) {
   .consult_txt {
-    font-size: 3.3rem;
+    width: 50rem;
+    margin-bottom: 27px;
   }
 }
 @media screen and (max-width: 768px) {
   .consult_txt {
-    font-size: 2.2rem;
-  }
-}
-.consult_txt .txt_l {
-  font-weight: bold;
-}
-@media screen and (min-width: 769px) {
-  .consult_txt .txt_l {
-    font-size: 4.5rem;
-  }
-}
-@media screen and (max-width: 768px) {
-  .consult_txt .txt_l {
-    font-size: 4.2rem;
-  }
-}
-@media screen and (max-width: 768px) {
-  .consult_txt {
-    width: 33.7rem;
+    width: 28.8rem;
   }
 }
 
 @media screen and (min-width: 769px) {
   .consult_cta.-pc > a {
-    width: 45.6rem;
+    width: 50rem;
   }
 }
 @media screen and (max-width: 768px) {
@@ -1763,7 +1738,6 @@ main {
 }
 @media screen and (max-width: 768px) {
   .consult_cta.-sp > a {
-    width: 100%;
     height: 10.5rem;
   }
   .consult_cta.-sp > a::after {

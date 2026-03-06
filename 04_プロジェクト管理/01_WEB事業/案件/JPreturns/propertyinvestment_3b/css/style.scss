@@ -310,18 +310,14 @@ main {
 
 
   .company_name {
-    width: divceil(327, 10, rem);
-    height: auto;
+    @include pc {
+     width: 100%;
+   }
 
-     @include pc {
-      width: divceil(287, 10, rem);
-    }
-
-
-    @include sp {
-       width: divceil(327, 10, rem);
-      margin-top: divceil(61, 10, rem);
-    }
+   @include sp {
+      width: divceil(327, 10, rem);
+     margin-top: divceil(61, 10, rem);
+   }
 
 
   }
@@ -1702,133 +1698,72 @@ main {
 
 
 }
+
 .consult_desc {
- 
   display: flex;
   flex-direction: column;
   justify-content: right;
-  align-items: center;
-  
+  align-items: center; 
   right: 0;
-  
   height: auto;
  
-
-
   @include pc {
-     // width: 60%;
-    // position: absolute;
     row-gap: divceil(0, 10, rem);
     top: divceil(019, 10, rem);
-
     margin: auto;
-    //margin-top: divceil(120, 10, rem);
-    //margin-left: divceil(150, 10, rem);
   }
 
   @include sp {
-    
-    width: divceil(6.00 , 10, %);
     row-gap: divceil(15, 10, rem);
     top: divceil(0, 10, rem);
-    
+    width: 60%;
   }
 }
 
 .consult_txt {
   height: auto;
-  margin-bottom: 10px;
-
-  .txt_m{
-  font-weight : bold;
-
-  }
-    @include pc {
-       font-size: divceil(33, 10, rem);
-    }
-    @include sp {
-      font-size: divceil(22, 10, rem);
-    }
-    
-  .txt_l{
-  
-    font-weight : bold;
-  
-
-    @include pc {
-       font-size: divceil(45, 10, rem);
-
-    }
-
-    @include sp {
-      font-size: divceil(42, 10, rem);
-    }
-    
-
-  }
-
-
-
-
   @include pc {
-    //width: divceil(600, 10, rem);
+    width: divceil(500, 10, rem);
+    margin-bottom: 27px;
   }
-
   @include sp {
-    width: divceil(337, 10, rem);
+    width: divceil(288, 10, rem);
   }
 }
 
 .consult_cta {
-  // PCとSPでボタンレイアウトが異なるため
-
   &.-pc {
-        > a {
-
-        
-        @include pc {
-          width: divceil(456, 10, rem);
-        // height: divceil(67, 10, rem);
-        }
-
-        @include sp {
-          display: none;
-          width: divceil(320, 10, rem);
-          height: divceil(65, 10, rem);
-        }
+    > a {
+      @include pc {
+        width: divceil(500, 10, rem);
       }
-    }  
+
+      @include sp {
+        display: none;
+        width: divceil(320, 10, rem);
+        height: divceil(65, 10, rem);
+      }
+    }
+  }  
 
   &.-sp {
-        > a {
+    > a {
+      @include pc {
+        display: none;
+        width: divceil(456, 10, rem);
+      }
 
-        
-        @include pc {
-             display: none;
-          width: divceil(456, 10, rem);
-        // height: divceil(67, 10, rem);
-        }
+      @include sp {
+        height: divceil(105, 10, rem);
 
-        @include sp {
-       
-          width: divceil(10.0, 10, %);
-          height: divceil(105, 10, rem);
-
-
-          &::after {
-              background-image:none;
-              
-            }
-
+        &::after {
+          background-image:none;
         }
       }
-    }  
-
-
-
-
-  
+    }
+  }
 }
+
 
 .cta_floating_button {
   background-color: transparent;
