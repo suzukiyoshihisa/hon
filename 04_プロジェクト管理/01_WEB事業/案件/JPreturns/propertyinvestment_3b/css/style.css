@@ -498,12 +498,12 @@ main {
 }
 @media screen and (min-width: 769px) {
   .dialog_open {
-    height: 2rem;
-    font-size: 1.6rem;
+    height: 2.4rem;
+    font-size: 2rem;
     z-index: 200;
     text-align: right;
-    right: 2rem;
-    top: 3.5rem;
+    right: 4rem;
+    top: 4.5rem;
   }
 }
 @media screen and (max-width: 768px) {
@@ -764,8 +764,7 @@ main {
 @media screen and (max-width: 768px) {
   .intro_cta > a,
   .consult_cta > a {
-    width: 66rem;
-    height: 10.2rem;
+    width: 100%;
   }
 }
 .intro_cta > a::after,
@@ -808,7 +807,7 @@ main {
     background-repeat: no-repeat;
     background-size: 100%;
     z-index: 1;
-    height: 75px;
+    height: 100px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -842,7 +841,7 @@ main {
   .cta_fixed_wrap {
     width: 110rem;
     justify-content: space-between;
-    padding: 24px 0 30px;
+    padding: 35px 0 35px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -1758,7 +1757,7 @@ main {
   right: 25px;
   bottom: 25px;
   z-index: 100;
-  width: 350px;
+  width: 500px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;

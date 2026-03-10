@@ -41,7 +41,6 @@ window.addEventListener("scroll", function () {
 
 
     if  ( currentScroll >  currentTargetTop )  {
-      console.log(currentScroll);
     ctaBtns.forEach((ctaBtn) => ctaBtn.classList.remove("is-active"));
     ctaBgs.forEach((ctaBg) => ctaBg.classList.remove("is-active"));
     } 
@@ -140,6 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   chatbotLinks.forEach((link) => {
+    console.log('hoge');
     link.addEventListener("click", function (e) {
       if (window.innerWidth > 768) {
         e.preventDefault();

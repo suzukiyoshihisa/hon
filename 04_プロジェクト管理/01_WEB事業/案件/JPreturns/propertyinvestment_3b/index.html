@@ -66,23 +66,27 @@
         <h1 class="kv_logo">
           <img src="./img/common/company_name.png" alt="J.P.RETURNS Joint Property Returns" />
         </h1>
-        <a href="https://jpreturns.com/lp/mens_websoudan_point/form_af_002/" class="cta_fixed_btn p-parameter-link">
-          <img src="./img/cta_btn_fixed_pc.png" alt="無料 まずは資料を見てみる" />
-        </a>
       </div>
     </div>
-    <div class="cta_fixed -sp">
-      <a href="https://jpreturns.com/lp/mens_websoudan_point/form_af_002/" class="cta_fixed_btn p-parameter-link">
-        <img src="./img/cta_btn_fixed_sp.png" alt="無料 まずは資料を見てみる" />
-      </a>
+    <button class="cta_floating_button  -floating js-cta-floating">
+      <img src="./img/cta_btn_fixed_pc.png" alt="無料 まずは資料を見てみる" />
+    </button>
+    <div class="chatbot-iframe-wrapper js-chatbot" id="chatbotIframe">
+      <div class="chatbot-iframe-inner">
+        <div class="chatbot-close-btn-wrapper">
+          <button class="chatbot-close-btn js-chatbot-close-btn">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <iframe id="ctaIframe" src="" height="100%" width="100%"></iframe>
+      </div>
     </div>
 
     <div class="kv">
-
       <div class="kv_wrap">
         <div class="kv_inner">
           <div class="kv_img">
-
             <picture>
               <source media="(min-width: 769px)" srcset="./img/kv_image_pc.png" />
               <img src="./img/kv_image_sp.png" alt="" />
@@ -99,8 +103,11 @@
             ※1. 2025年3月末時点。周辺エリアの相場賃料と比較して乖離が出てきた場合に更新営業を実施。賃上げを保証するものではございません。※2. 2025年3月時点
           </p>
           <div class="kv_cta">
-            <p class="dialog_open">※進呈条件は<span>こちら</span></p>    
-            <a class="p-parameter-link" href="https://jpreturns.com/lp/mens_websoudan_point/form_af_002/" target="_blank">無料 まずは資料を見てみる</a>
+            <p class="dialog_open">※進呈条件は<span>こちら</span></p>
+            <img class="pc-only js-chatbot js-chatbot-link pc-only" src="./img/kv_gift.png" alt="えらべるデジタルギフト50.000円分プレゼント！！" />
+            <a class="p-parameter-link sp-only" href="https://jpreturns.com/lp/mens_websoudan_point/form_af_002/" target="_blank">
+              無料 まずは資料を見てみる
+            </a>
           </div>
         </div>
       </div>
@@ -108,11 +115,7 @@
     <div class="kv_gift2">
       <picture>
         <source media="(min-width: 769px)" srcset="./img/kv_gift_pc2.png" />
-        <!-- <img src="./img/kv_gift_sp2.png" alt="当社厳選の未公開物件ご紹介!オーナーさま20人の「決め手」紹介!ebookプレゼント！ " /> -->
-      </picture>
-
-
-      
+      </picture>      
 
       <dialog class="dialog">
         <div class="dialog_cont">

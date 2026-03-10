@@ -940,6 +940,7 @@ main {
 
 .kv_buttonList {
   position: relative;
+  cursor: pointer;
 }
 @media screen and (min-width: 769px) {
   .kv_buttonList {
@@ -1701,7 +1702,8 @@ main {
   right: 25px;
   bottom: 25px;
   z-index: 100;
-  width: 350px;
+  width: 500px;
+  height: auto;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;

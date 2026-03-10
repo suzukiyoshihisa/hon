@@ -965,6 +965,7 @@ main {
 
 .kv_buttonList {
   position: relative;
+  cursor: pointer;
   
   @include pc {
     width: divceil(980, 10, rem);
@@ -1631,7 +1632,8 @@ main {
   right: 25px;
   bottom: 25px;
   z-index: 100;
-  width: 350px;
+  width: 500px;
+  height: auto;
 
   opacity: 0;
   visibility: hidden;
