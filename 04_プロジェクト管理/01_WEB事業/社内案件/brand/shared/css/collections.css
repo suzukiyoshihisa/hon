@@ -127,3 +127,23 @@ h2 {
 @media screen and (max-width: 590px) {
   .clip-youtube {
     padding-top: 56%; } }
+
+.shop-cta {
+  text-align: center;
+  margin: 48px 0 36px;
+}
+.shop-cta a {
+  display: inline-block;
+  border: 1px solid #000;
+  padding: 13px 48px;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+  transition: background 0.25s, color 0.25s;
+}
+.shop-cta a:hover {
+  background: #000;
+  color: #fff;
+}
