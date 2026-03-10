@@ -9,7 +9,7 @@
 
 $(document).ready(function () {
   $(".sub").hide();
-	$(".menu_toggle span").click(function () {
+	$(".nav-menu span").click(function () {
     if ($(this).parent().hasClass("active")) {
 			$(this).parent().removeClass("active");
       $(".sub").slideUp(500);
@@ -19,20 +19,20 @@ $(document).ready(function () {
 		}    				
 	});
 
-$(".hmenu_wrap").click(function () {      
-      if ($("body").hasClass("nav_open")) {
-        $("body").removeClass("nav_open");        
+$(".hamburger-wrap").click(function () {
+      if ($("body").hasClass("nav-open")) {
+        $("body").removeClass("nav-open");
       } else {
-        $("body").addClass("nav_open");        
+        $("body").addClass("nav-open");
       }
 	});
   
   if($(window).width() > 768) {
-		$(".menu_toggle .close").click(function () {      
-        $('body').removeClass("nav_open");
+		$(".nav-menu .close").click(function () {
+        $('body').removeClass("nav-open");
     });
-    $(".navmask").click(function () {      
-        $('body').removeClass("nav_open");
+    $(".nav-mask").click(function () {
+        $('body').removeClass("nav-open");
     });
 	}
   
@@ -45,9 +45,9 @@ $(document).ready(function () {
     var TargetPos = $('section.block').offset().top;
     var ScrollPos = $(window).scrollTop();
     if (ScrollPos > TargetPos) {
-      $("body").addClass('has_nav');
+      $("body").addClass('has-nav');
     } else {
-      $("body").removeClass('has_nav');
+      $("body").removeClass('has-nav');
     }
   });
 });
@@ -69,7 +69,7 @@ var isItScrollableWithoutVisibleScrollbars = function(el) {
     else return false;
 };
 document.addEventListener("touchmove", function(e) {
-    if (document.body.classList.contains("navOpen") && !isItScrollableWithoutVisibleScrollbars(document.getElementById("menu_toggle"))) e.preventDefault();
+    if (document.body.classList.contains("nav-open") && !isItScrollableWithoutVisibleScrollbars(document.getElementById("nav-menu"))) e.preventDefault();
 }, {
     passive: false
 });

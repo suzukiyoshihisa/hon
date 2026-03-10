@@ -36,72 +36,61 @@ section {
     margin-bottom: 28px;
   }
 }
-.wansie_info {
+.brand-info {
   border-top: 3px solid #000;
   margin-top: 75px;
   padding-top: 28px;
 }
 @media screen and (max-width: 768px) {
-  /*  .key{
-		  width:100vw;
-		  margin:0 -5.2%;
-	  }*/
-  .wansie_info {
+  .brand-info {
     margin-top: 7.5vw;
     padding-top: 2vw;
-	  
   }
-  .wansie_info dl dt {
+  .brand-info dl dt {
     font-size: 3vw !important;
   }
-  .wansie_info dl dd {
+  .brand-info dl dd {
     font-size: 3vw !important;
   }
-	
-	
 }
-.wansie_info dl {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
+.brand-info dl {
   display: flex;
   margin-bottom: 25px;
 }
-.wansie_info dl dt {
+.brand-info dl dt {
   width: 180px;
   font-size: 1rem;
 }
-.wansie_info dl dd {
+.brand-info dl dd {
   width: calc(100% - 180px);
   font-size: 1rem;
   line-height: 2.2;
   word-break: keep-all
 }
 @media screen and (min-width: 769px) and (max-width: 1200px) {
-  .wansie_info dl dt {
+  .brand-info dl dt {
     width: 220px;
   }
-  .wansie_info dl dd {
+  .brand-info dl dd {
     width: calc(100% - 220px);
   }
 }
 @media screen and (max-width: 768px) {
-  .wansie_info dl {
+  .brand-info dl {
     margin-bottom: 2em;
   }
-  .wansie_info dl dt {
+  .brand-info dl dt {
     width: 140px;
   }
-  .wansie_info dl dd {
+  .brand-info dl dd {
     width: calc(100% - 140px);
   }
 }
 @media screen and (max-width: 480px) {
-  .wansie_info dl dt {
+  .brand-info dl dt {
     width: 110px;
   }
-  .wansie_info dl dd {
+  .brand-info dl dd {
     width: calc(100% - 110px);
   }
 }
@@ -111,7 +100,7 @@ footer {
   margin: 0% auto 0!important;
   padding-left: 0px;
 }
-footer .shop_name {
+footer .store-name {
   font-size: 24px;
   font-weight: 500;
   line-height: 1;
@@ -119,7 +108,7 @@ footer .shop_name {
   margin-bottom: 10px;
   letter-spacing: 0.1em;
 }
-footer p.shop_info {
+footer p.store-info {
   font-size: 1rem;
   line-height: 1.4;
   margin-bottom: 0px;
@@ -134,15 +123,12 @@ footer .sns {
     padding-left: 0%;
   }
 }
-.about_in_l {
-  display: inline-block;
-}
 @media screen and (min-width: 769px) and (max-width: 1300px) {
-  .menu_toggle {
+  .nav-menu {
     width: calc(280px + 7.2%);
     left: calc(-280px - 7.2%);
   }
-footer .shop_name {
+footer .store-name {
   font-size: 24px!important;
   font-weight: 500;
   line-height: 1;
@@ -150,7 +136,7 @@ footer .shop_name {
   margin-bottom: 10px;
   letter-spacing: 0.1em;
 }
-footer p.shop_info {
+footer p.store-info {
   font-size: 1rem!important;
   line-height: 1.4;
   margin-bottom: 10px!important;

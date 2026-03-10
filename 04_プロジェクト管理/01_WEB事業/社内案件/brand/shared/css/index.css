@@ -1,9 +1,9 @@
-.slider_slide {
+.slide {
   position: relative;
 	z-index:1;
 
 }
-.slider_txt {
+.slide-text {
   text-transform: uppercase;
   z-index: 1;
   text-align: center;
@@ -13,18 +13,18 @@
   line-height: 1.29;
   letter-spacing: 0.35em;
 }
-.shop_info {
+.store-info {
   line-height: 1.5;
 }
-.slider_slide a {
+.slide a {
   text-decoration: none;
   padding-bottom: 26px;
   display: block;
 }
-.slider_slide a:hover img {
+.slide a:hover img {
   opacity: 1 !important;
 }
-.slider_number {
+.slide-number {
   padding-left: 92px;
   font-size: 12px;
   letter-spacing: 0;
@@ -35,7 +35,7 @@
   right: 4px;
   z-index: 1;
 }
-.slider_number:before {
+.slide-number:before {
   content: '';
   position: absolute;
   left: 0;
@@ -44,7 +44,7 @@
   height: 1px;
   background-color: #dbdbdb;
 }
-.slider_number span.to-line {
+.slide-number span.slide-progress {
   content: '';
   position: absolute;
   left: 0;
@@ -54,19 +54,19 @@
   background-color: #231815;
   transition: 0s linear;
 }
-.slider_number span.current:after {
+.slide-number span.current:after {
   content: '/';
   display: inline-block;
   text-align: center;
   font-size: 11px;
   padding: 0 3px;
 }
-.slick-active .slider_number .to-line {
-  animation-name: to-line;
+.slick-active .slide-number .slide-progress {
+  animation-name: slide-progress;
   animation-duration: 4s;
   animation-timing-function: linear;
 }
-@keyframes to-line {
+@keyframes slide-progress {
   from {
     width: 0;
   }
@@ -95,10 +95,6 @@
 
 @media screen and (min-width: 1221px) {
   main {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
     display: flex;
     align-items: center;
   }
@@ -121,23 +117,19 @@
     margin: 0 2.6%;
     width: calc(94.8% - 360px);
   }
-  .slider_slide a {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
+  .slide a {
     display: flex;
     width: 100%;
     position: relative;
     justify-content: space-between;
   }
-  .slider_txt {
+  .slide-text {
     position: absolute;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
   }
-  .slider_img {
+  .slide-image {
     width: 50%;
   }
   footer {
@@ -146,13 +138,13 @@
     left: 0;
     margin-top: 0;
   }
-  .menu_toggle {
+  .nav-menu {
     width: calc(360px + 8.6%);
     left: calc(-360px - 8.6%);
   }
 }
 @media screen and (min-width: 769px) and (max-width: 1300px) {
-  .menu_toggle {
+  .nav-menu {
     width: calc(266px + 8.6%);
     left: calc(-266px - 8.6%);
   }
@@ -164,7 +156,7 @@
   #sidebar {
     width: 240px;
   }
-  .menu_toggle {
+  .nav-menu {
     width: calc(227px + 8.6%);
     left: calc(-227px - 8.6%);
   }
@@ -176,7 +168,7 @@
   #sidebar footer {
     display: none;
   }
-  .slider_txt {
+  .slide-text {
     font-size: 12.78vw;
     position: relative;
     margin-top: -9vw;
@@ -185,7 +177,7 @@
   #container {
     padding-bottom: 10vw;
   }
-  .slider_number {
+  .slide-number {
     right: 4.5%;
   }
 }

@@ -33,14 +33,14 @@ footer {
 #thanks {
   display: none;
 }
-footer .shop_name {
+footer .store-name {
   font-size: 24px;
   font-weight: 500;
   line-height: 1;
   margin-bottom: 10px;
   letter-spacing: 0.1em;
 }
-footer p.shop_info {
+footer p.store-info {
   font-size: 1rem;
   line-height: 1.4;
   margin-bottom: 0px;
