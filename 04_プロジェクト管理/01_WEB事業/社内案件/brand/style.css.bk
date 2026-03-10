@@ -1,0 +1,2056 @@
+/*
+Theme Name: shibuyanomori
+*/
+* {
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 767px) {
+  .view_pc {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .view_sp {
+    display: none !important;
+  }
+}
+a {
+  display: block;
+  transition: 0.3s;
+}
+a:hover {
+  opacity: 0.7;
+}
+
+img {
+  width: 100%;
+}
+
+.tit_p {
+  color: #D75184;
+}
+
+.con_cta {
+  overflow: hidden;
+  position: relative;
+  margin-top: 70px;
+  background: url(/wp-content/uploads/2024/11/img_cta.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 39.867647vw 0 38.102941vw;
+}
+.con_cta:nth-child(2) {
+  margin-top: 0;
+}
+.con_cta .box_cta .cta_btn {
+  display: flex;
+  flex-wrap: wrap;
+  width: 53.338235vw;
+  margin: 0 auto;
+}
+.con_cta .box_cta .cta_btn a {
+  display: block;
+  width: 49%;
+}
+.con_cta .box_cta .cta_btn a:nth-child(2) {
+  margin-left: 2%;
+}
+.con_cta .box_cta .cta_imgloop {
+  content: "";
+  position: absolute;
+  bottom: 4vw;
+  left: 0;
+  width: 300vw;
+  display: flex;
+  gap: 3rem;
+}
+.con_cta .box_cta .loopImage {
+  width: 3600px;
+  animation: infinity-scroll-left 80s infinite linear 0.5s both;
+}
+@keyframes infinity-scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@media screen and (min-width: 1367px) and (max-width: 1560px) {
+  .con_cta .box_cta .cta_imgloop {
+    content: "";
+    position: absolute;
+    bottom: 2.5vw;
+    left: 0;
+    width: 300vw;
+    display: flex;
+    gap: 3rem;
+  }
+}
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+  .con_cta .box_cta .cta_imgloop {
+    bottom: 1vw;
+    width: 260vw;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .con_cta .box_cta .cta_imgloop {
+    bottom: 2vw;
+    width: 240vw;
+  }
+}
+@media screen and (max-width: 767px) {
+  .con_cta {
+    background: url(/wp-content/uploads/2024/11/img_cta-sp.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 184.867647vw 0 128.102941vw;
+  }
+  .con_cta .box_cta .cta_btn {
+    display: flex;
+    flex-wrap: wrap;
+    width: 75vw;
+  }
+  .con_cta .box_cta .cta_btn a {
+    display: block;
+    width: 100%;
+  }
+  .con_cta .box_cta .cta_btn a:nth-child(2) {
+    margin-left: 0;
+  }
+  .con_cta .box_cta .cta_imgloop {
+    bottom: 10vw;
+    width: 6000px;
+  }
+  .con_cta .box_cta .cta_imgloop .loopImage {
+    width: 2500px;
+  }
+}
+
+.con_cta_line .box_cta_line {
+  background: url(/wp-content/uploads/2024/11/bg_line_cta.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 17.867647vw 0 2.102941vw;
+}
+.con_cta_line .box_cta_line .cta_btn {
+  width: 26.338235vw;
+  margin: 0 auto;
+}
+@media screen and (max-width: 767px) {
+  .con_cta_line .box_cta_line {
+    background: url(/wp-content/uploads/2024/11/img_line_btn-sp.jpg);
+    padding: 146.1538461538vw 0 9.4871794872vw;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .con_cta_line .box_cta_line .cta_btn {
+    width: 86.4102564103vw;
+    margin: 0 auto;
+  }
+}
+
+.con_mv {
+  position: relative;
+}
+.con_mv .box_mv {
+  position: relative;
+}
+.con_mv .box_mv .img {
+  width: 100%;
+}
+.con_mv .box_mv .box_btn {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.con_mv .box_mv .box_btn .btn_line {
+  margin: 0 20px;
+}
+@media screen and (min-width: 1024px) and (max-width: 1500px) {
+  .con_mv .box_mv .box_btn .btn_cta {
+    width: 48%;
+  }
+  .con_mv .box_mv .box_btn .btn_cta img {
+    max-width: 260px;
+  }
+  .con_mv .box_mv .box_btn .btn_line {
+    width: 48%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  .con_mv .box_mv .box_btn .btn_line img {
+    max-width: 260px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .con_mv .box_mv .box_btn .btn_cta {
+    width: 40%;
+  }
+  .con_mv .box_mv .box_btn .btn_cta img {
+    max-width: 260px;
+  }
+  .con_mv .box_mv .box_btn .btn_line {
+    width: 40%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  .con_mv .box_mv .box_btn .btn_line img {
+    max-width: 260px;
+  }
+}
+.con_strong {
+  line-height: 0;
+}
+@media screen and (min-width: 768px) {
+  .con_strong .box_strong:first-child {
+    padding: 40px 0;
+    background-image: url(/wp-content/uploads/2024/11/bg_strong.png);
+    background-size: cover;
+  }
+  .con_strong .box_strong:first-child .img {
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+  .con_strong .box_strong:first-child .img img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .con_strong .box_strong:first-child {
+    padding: 40px 0;
+    background-image: url(/wp-content/uploads/2024/11/bg_strong-sp.png);
+    background-size: cover;
+  }
+  .con_strong .box_strong:first-child .img {
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+  .con_strong .box_strong:first-child .img img {
+    width: 100%;
+  }
+  .con_strong .box_strong:first-child .img:nth-child(2) {
+    width: 85%;
+  }
+}
+
+.con_course {
+  position: relative;
+  padding-top: 70px;
+}
+.con_course::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/wp-content/uploads/2024/11/bg_course.png);
+  z-index: -1;
+}
+.con_course::after {
+  content: "";
+  position: absolute;
+  top: 28%;
+  right: 8%;
+  max-width: 100px;
+  width: 100%;
+  height: 100%;
+  background-image: url(/wp-content/uploads/2024/11/dec_vertxt.png);
+  background-size: contain;
+}
+.con_course .box_course {
+  z-index: 1;
+  text-align: center;
+}
+.con_course .box_course .inn_title {
+  position: relative;
+  display: inline-block;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+  text-align: center;
+}
+.con_course .box_course .inn_title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -140px;
+  width: 60px;
+  height: 100%;
+  background-image: url(/wp-content/uploads/2024/11/dec_left.png);
+}
+.con_course .box_course .inn_title::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  right: -140px;
+  width: 60px;
+  height: 100%;
+  background-image: url(/wp-content/uploads/2024/11/dec_right.png);
+}
+.con_course .box_course .inn_title h2 {
+  position: relative;
+  display: inline-block;
+  font-size: 28px;
+  font-weight: 900;
+}
+.con_course .box_course .inn_title h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: #D75184;
+}
+.con_course .box_course .inn_flex {
+  max-width: 900px;
+  width: 90%;
+  margin-top: 60px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_course .box_course .inn_flex .content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.con_course .box_course .inn_flex .content:nth-child(2), .con_course .box_course .inn_flex .content:nth-child(4) {
+  flex-direction: row-reverse;
+}
+.con_course .box_course .inn_flex .content:nth-child(2) .cst_left, .con_course .box_course .inn_flex .content:nth-child(4) .cst_left {
+  margin-left: 5%;
+}
+.con_course .box_course .inn_flex .content:nth-child(2) .cst_right, .con_course .box_course .inn_flex .content:nth-child(4) .cst_right {
+  margin-left: 0;
+}
+.con_course .box_course .inn_flex .content .cst_left {
+  width: 60%;
+}
+.con_course .box_course .inn_flex .content .cst_left .txt {
+  display: block;
+  margin-top: 15px;
+  text-align: left;
+  font-family: "Zen Maru Gothic";
+  font-weight: 400;
+}
+.con_course .box_course .inn_flex .content .cst_right {
+  width: 35%;
+  margin-left: 5%;
+}
+.con_course .box_course .inn_flex .content h3 {
+  position: relative;
+  text-align: left;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+.con_course .box_course .inn_flex .content h3::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #D75184;
+  border-radius: 9999px;
+}
+.con_course .box_course .inn_flex .content .tit_p {
+  color: #D75184;
+}
+.con_course .box_course .inn_flex .img_point {
+  max-width: 110px;
+}
+@media screen and (min-width: 1367px) and (max-width: 1500px) {
+  .con_course::after {
+    right: 5%;
+  }
+}
+@media screen and (min-width: 1201px) and (max-width: 1366px) {
+  .con_course::after {
+    right: 2%;
+    max-width: 80px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .con_course .box_course .inn_title::before {
+    left: -70px;
+  }
+  .con_course .box_course .inn_title::after {
+    right: -80px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .con_course::after {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .con_course::after {
+    display: none;
+  }
+  .con_course .box_course .inn_title::before {
+    left: -45px;
+  }
+  .con_course .box_course .inn_title::after {
+    right: -40px;
+    bottom: 0;
+  }
+  .con_course .box_course .inn_title::before, .con_course .box_course .inn_title::after {
+    max-width: 45px;
+    max-height: 45px;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+  }
+  .con_course .box_course .inn_flex .content:nth-child(2) .cst_left, .con_course .box_course .inn_flex .content:nth-child(4) .cst_left {
+    margin-left: 0;
+  }
+  .con_course .box_course .inn_flex .content:nth-child(2) .cst_right, .con_course .box_course .inn_flex .content:nth-child(4) .cst_right {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .con_course .box_course .inn_flex .content .cst_left {
+    width: 100%;
+  }
+  .con_course .box_course .inn_flex .content .cst_right {
+    width: 85%;
+    margin-top: 25px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.con_intro {
+  padding: 60px 0;
+  background-image: url(/wp-content/uploads/2024/11/bg_intro.png);
+}
+.con_intro .box_intro .inn_tit_img {
+  max-width: 380px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_intro .box_intro .inn_flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.con_intro .box_intro .inn_flex .left {
+  width: 50%;
+}
+.con_intro .box_intro .inn_flex .right {
+  width: 50%;
+  margin-left: -30px;
+}
+.con_intro .box_intro .inn_flex:nth-child(2) {
+  margin-top: 10px;
+}
+
+.con_voice {
+  padding: 60px 0;
+  background-image: url(/wp-content/uploads/2024/11/120097.jpg);
+}
+@media screen and (max-width: 767px) {
+  .con_voice {
+    background-size: cover;
+  }
+}
+.con_voice .box_voice {
+  max-width: 900px;
+  width: 90%;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_voice .box_voice .inn_title {
+  position: relative;
+  display: inline-block;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+  text-align: center;
+}
+.con_voice .box_voice .inn_title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -140px;
+  width: 60px;
+  height: 100%;
+  background-image: url(/wp-content/uploads/2024/11/dec_left.png);
+}
+.con_voice .box_voice .inn_title::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  right: -140px;
+  width: 60px;
+  height: 100%;
+  background-image: url(/wp-content/uploads/2024/11/dec_right.png);
+}
+@media screen and (max-width: 767px) {
+  .con_voice .box_voice .inn_title::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 40px;
+    height: 100%;
+    background-image: url(/wp-content/uploads/2024/11/dec_left.png);
+    background-size: contain;
+  }
+  .con_voice .box_voice .inn_title::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -50px;
+    width: 40px;
+    height: 100%;
+    background-image: url(/wp-content/uploads/2024/11/dec_right.png);
+    background-size: contain;
+  }
+}
+.con_voice .box_voice .inn_title h2 {
+  position: relative;
+  display: inline-block;
+  font-size: 28px;
+  font-weight: 900;
+}
+.con_voice .box_voice .inn_title h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: #D75184;
+}
+.con_voice .box_voice .inn_items {
+  position: relative;
+  margin-top: 50px;
+  padding: 30px;
+  background-color: #fff;
+}
+.con_voice .box_voice .inn_items::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: #D75184;
+}
+.con_voice .box_voice .inn_items::after {
+  content: "";
+  position: absolute;
+  top: 40px;
+  right: 70px;
+  width: 92px;
+  height: 72px;
+  background-image: url(/wp-content/uploads/2024/11/illust-1.png);
+}
+@media screen and (min-width: 768px) and (max-width: 950px) {
+  .con_voice .box_voice .inn_items::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    width: 62px;
+    height: 42px;
+    background-image: url(/wp-content/uploads/2024/11/illust-1.png);
+    background-size: contain;
+  }
+}
+@media screen and (max-width: 767px) {
+  .con_voice .box_voice .inn_items::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    width: 72px;
+    height: 52px;
+    background-image: url(/wp-content/uploads/2024/11/illust-1.png);
+    background-size: contain;
+  }
+}
+.con_voice .box_voice .items_header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.con_voice .box_voice .items_header .img {
+  max-width: 120px;
+  width: 20%;
+}
+.con_voice .box_voice .items_header .titarea {
+  width: 77%;
+  margin-left: 3%;
+  text-align: left;
+}
+.con_voice .box_voice .items_header .titarea h3 {
+  display: block;
+  text-align: left !important;
+  font-size: 24px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+.con_voice .box_voice .items_header .titarea h4 {
+  font-size: 17px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 700;
+}
+@media screen and (min-width: 768px) and (max-width: 950px) {
+  .con_voice .box_voice .items_header .titarea h3 {
+    padding-right: 80px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .con_voice .box_voice .items_header .img {
+    width: 100%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .con_voice .box_voice .items_header .titarea {
+    width: 100%;
+    margin-left: 0;
+  }
+  .con_voice .box_voice .items_header .titarea h4 {
+    margin-top: 10px;
+    text-align: center;
+  }
+  .con_voice .box_voice .items_header .titarea h3 {
+    text-align: center !important;
+  }
+}
+.con_voice .box_voice .items_content {
+  margin-top: 1em;
+  font-size: 16px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 400;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.con_surpport {
+  margin-bottom: -70px;
+  padding: 70px 0 0 0;
+  position: relative;
+}
+.con_surpport::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/wp-content/uploads/2024/11/bg_course.png);
+  z-index: -1;
+}
+.con_surpport .box_surpport {
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_surpport .box_surpport .inn_title {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_surpport .box_surpport .inn_title .tit_img {
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+@media screen and (max-width: 767px) {
+  .con_surpport .box_surpport .inn_title .tit_img {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+.con_surpport .box_surpport .int_teacher {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 30px;
+  text-align: center;
+}
+.con_surpport .box_surpport .int_teacher .tit {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  font-size: 37px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+  position: relative;
+}
+.con_surpport .box_surpport .int_teacher .tit img {
+  width: 100%;
+}
+.con_surpport .box_surpport .int_teacher .t_tit {
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_surpport .box_surpport .int_teacher .inn_flex {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_surpport .box_surpport .int_teacher .inn_flex .left, .con_surpport .box_surpport .int_teacher .inn_flex .right {
+  padding: 20px 20px;
+  background-color: #EFEFEF;
+}
+.con_surpport .box_surpport .int_teacher .inn_flex .left h3, .con_surpport .box_surpport .int_teacher .inn_flex .right h3 {
+  margin-top: 20px;
+  font-size: 23px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 700;
+}
+.con_surpport .box_surpport .int_teacher .inn_flex .left p, .con_surpport .box_surpport .int_teacher .inn_flex .right p {
+  margin-top: 15px;
+  text-align: left;
+  font-size: 16px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 400;
+}
+.con_surpport .box_surpport .int_teacher .inn_flex .left {
+  width: 48%;
+}
+.con_surpport .box_surpport .int_teacher .inn_flex .right {
+  width: 48%;
+  margin-left: 4%;
+}
+.con_surpport .box_surpport .int_teacher .inn_flex_bottom {
+  margin-top: 50px;
+}
+.con_surpport .box_surpport .int_teacher .items_left {
+  width: 30%;
+}
+.con_surpport .box_surpport .int_teacher .items_right {
+  width: 65%;
+  margin-left: 5%;
+}
+.con_surpport .box_surpport .int_teacher .items_right .tit {
+  display: block;
+  text-align: left;
+  font-size: 43px;
+}
+.con_surpport .box_surpport .int_teacher .items_right .tit::before, .con_surpport .box_surpport .int_teacher .items_right .tit::after {
+  display: none;
+}
+.con_surpport .box_surpport .int_teacher .items_right h3 {
+  position: relative;
+  margin-top: 20px;
+  text-align: left;
+  font-size: 23px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 700;
+}
+.con_surpport .box_surpport .int_teacher .items_right h3::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 9999px;
+  background-color: #D75184;
+}
+.con_surpport .box_surpport .int_teacher .items_right p {
+  margin-top: 15px;
+  text-align: left;
+  font-family: "Zen Maru Gothic";
+  font-weight: 400;
+}
+@media screen and (max-width: 767px) {
+  .con_surpport .box_surpport .int_teacher .items_left {
+    display: none;
+  }
+  .con_surpport .box_surpport .int_teacher .items_right {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+  .con_surpport .box_surpport .int_teacher .items_right .tit {
+    width: 100%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .con_surpport .box_surpport .int_teacher .items_right h3 {
+    text-align: center;
+  }
+  .con_surpport .box_surpport .int_teacher .items_right p {
+    margin-top: 30px;
+  }
+  .con_surpport .box_surpport .int_teacher .inn_flex_bottom {
+    width: 90%;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .con_surpport .box_surpport .int_teacher .inn_flex_bottom .left {
+    width: 100%;
+  }
+  .con_surpport .box_surpport .int_teacher .inn_flex_bottom .right {
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 0;
+  }
+}
+.con_surpport .box_surpport .cst_youtube {
+  margin-top: 140px;
+  padding: 0px 0 70px 0;
+  text-align: center;
+  background-color: #FCEAF2;
+}
+.con_surpport .box_surpport .cst_youtube img {
+  max-width: 1400px;
+  width: 90%;
+  margin-top: -60px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_surpport .box_surpport .cst_youtube iframe {
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media screen and (max-width: 767px) {
+  .con_surpport .box_surpport .cst_youtube {
+    padding: 0px 0 50px 0;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .con_surpport .box_surpport .cst_youtube iframe {
+    width: 90%;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.con_follow {
+  position: relative;
+  padding: 40px 0;
+}
+.con_follow .box_follow {
+  max-width: 900px;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_follow .box_follow .img {
+  max-width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+.con_follow .box_follow .img:nth-child(2) {
+  margin-top: 30px;
+}
+@media screen and (min-width: 768px) {
+  .con_follow {
+    background-image: url(/wp-content/uploads/2024/11/bg_follow.png);
+    background-size: 100% 100%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .con_follow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/wp-content/uploads/2024/11/bg_follow-sp.png);
+    background-size: contain;
+    z-index: -1;
+  }
+  .con_follow::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/wp-content/uploads/2024/11/bg_follow-sp.png);
+    background-size: contain;
+    background-position: bottom;
+    z-index: -1;
+  }
+  .con_follow .box_follow .inn_title {
+    margin-bottom: 30px;
+  }
+  .con_follow .box_follow .img {
+    width: 60%;
+  }
+  .con_follow .box_follow .img:nth-child(5) {
+    margin-top: 25px;
+  }
+}
+
+.con_req {
+  padding: 40px 0 60px 0;
+}
+.con_req .box_req {
+  max-width: 1000px;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_req .box_req .tit_img_req {
+  position: relative;
+  max-width: 550px;
+  margin-bottom: -50px;
+  z-index: 1;
+}
+.con_req .box_req .inn_flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.con_req .box_req .inn_flex .left, .con_req .box_req .inn_flex .center, .con_req .box_req .inn_flex .right {
+  width: 32%;
+  padding: 35px 25px;
+  background-color: #fff;
+}
+.con_req .box_req .inn_flex .img_point {
+  max-width: 120px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+.con_req .box_req .inn_flex h3 {
+  margin-top: 20px;
+  font-size: 23px;
+  color: #D75184;
+  text-align: center;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+}
+.con_req .box_req .inn_flex .img {
+  margin-top: 20px;
+}
+.con_req .box_req .inn_flex .txt {
+  margin-top: 10px;
+  color: #333;
+  font-family: "Zen Maru Gothic";
+  font-weight: 400;
+}
+.con_req .box_req .inn_flex .center {
+  margin-left: 2%;
+}
+.con_req .box_req .inn_flex .right {
+  margin-left: 2%;
+}
+@media screen and (min-width: 768px) {
+  .con_req {
+    background-image: url(/wp-content/uploads/2024/11/bg_req.png);
+  }
+}
+@media screen and (max-width: 767px) {
+  .con_req {
+    padding: 100px 0 60px 0;
+    background-image: url(/wp-content/uploads/2024/11/bg_req-sp.png);
+    background-size: 100%;
+  }
+  .con_req .box_req .tit_img_req {
+    margin-bottom: 0;
+  }
+  .con_req .box_req .inn_flex .left, .con_req .box_req .inn_flex .center, .con_req .box_req .inn_flex .right {
+    width: 100%;
+  }
+  .con_req .box_req .inn_flex .center, .con_req .box_req .inn_flex .right {
+    margin-top: 25px;
+    margin-left: 0;
+  }
+}
+
+.con_curriculum {
+  position: relative;
+  padding-top: 70px;
+}
+.con_curriculum::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/wp-content/uploads/2024/11/bg_course.png);
+  z-index: -1;
+}
+.con_curriculum .box_curriculum {
+  max-width: 900px;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_curriculum .box_curriculum .inn_title h2 {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+}
+.con_curriculum .box_curriculum .inn_title h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 65%;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: #D75184;
+}
+.con_curriculum .box_curriculum .inn_img {
+  max-width: 800px;
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_curriculum .box_curriculum .inn_txt {
+  margin-top: 30px;
+  text-align: center;
+}
+.con_curriculum .box_curriculum .inn_txt p {
+  font-size: 18px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 600;
+}
+@media screen and (max-width: 767px) {
+  .con_curriculum .box_curriculum .inn_img {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .con_curriculum .box_curriculum .inn_img img:nth-child(2), .con_curriculum .box_curriculum .inn_img img:nth-child(3) {
+    margin-top: 20px;
+  }
+  .con_curriculum .box_curriculum .inn_txt {
+    margin-top: 20px;
+  }
+}
+
+.con_point {
+  padding: 70px 0;
+  background-image: url(/wp-content/uploads/2024/11/bg_point.png);
+}
+.con_point .box_point {
+  max-width: 900px;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_point .box_point .inn_title h2 {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+}
+.con_point .box_point .inn_title h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 32%;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: #D75184;
+}
+.con_point .box_point .inn_trade_surpport {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin-top: 70px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_point .box_point .inn_trade_surpport .left {
+  position: relative;
+  width: 65%;
+  padding: 80px 40px 40px 40px;
+  background-color: #fff;
+}
+.con_point .box_point .inn_trade_surpport .left h3 {
+  color: #D75184;
+  font-size: 23px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+}
+.con_point .box_point .inn_trade_surpport .left .txt {
+  margin-top: 10px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 400;
+}
+.con_point .box_point .inn_trade_surpport .left .flx_img {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+.con_point .box_point .inn_trade_surpport .left .flx_img .img {
+  width: 48%;
+  margin-left: 0;
+}
+.con_point .box_point .inn_trade_surpport .left .flx_img .img:nth-child(2) {
+  margin-left: 4%;
+}
+.con_point .box_point .inn_trade_surpport .right {
+  width: 35%;
+}
+.con_point .box_point .inn_trade_surpport .right .img {
+  height: 100%;
+}
+.con_point .box_point .inn_trade_surpport .right .img img {
+  height: 100%;
+}
+.con_point .box_point .inn_trade_surpport:first-child .left::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: -43px;
+  width: 100%;
+  height: 100%;
+  background-image: url(/wp-content/uploads/2024/11/img_point02.png);
+}
+.con_point .box_point .inn_trade_surpport:nth-child(2) .left::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: -43px;
+  width: 100%;
+  height: 10%;
+  background-image: url(/wp-content/uploads/2024/11/img_point01.png);
+}
+.con_point .box_point .inn_trade_surpport:nth-child(3) .left::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: -43px;
+  width: 100%;
+  height: 10%;
+  background-image: url(/wp-content/uploads/2024/11/img_point02.png);
+}
+.con_point .box_point .inn_trade_surpport:nth-child(3) .left .flx_img .img {
+  width: 100%;
+}
+.con_point .box_point .inn_trade_surpport:nth-child(4) .left::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: -43px;
+  width: 100%;
+  height: 10%;
+  background-image: url(/wp-content/uploads/2024/11/img_point03.png);
+}
+.con_point .box_point .inn_trade_surpport:nth-child(4) .left .flx_img .img {
+  width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .con_point {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .con_point .box_point .inn_trade_surpport {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .con_point .box_point .inn_trade_surpport .left {
+    width: 100%;
+    padding: 50px 20px 30px 20px;
+  }
+  .con_point .box_point .inn_trade_surpport .left::before {
+    background-size: 100%;
+  }
+  .con_point .box_point .inn_trade_surpport:nth-child(2) .left::before {
+    top: 10px;
+    left: -37px;
+    max-width: 135px;
+  }
+  .con_point .box_point .inn_trade_surpport:nth-child(3) {
+    margin-top: 30px;
+  }
+  .con_point .box_point .inn_trade_surpport:nth-child(3) .left::before {
+    top: 10px;
+    left: -37px;
+    max-width: 135px;
+  }
+  .con_point .box_point .inn_trade_surpport:nth-child(3) .left .flx_img .img {
+    width: 100%;
+  }
+  .con_point .box_point .inn_trade_surpport:nth-child(4) {
+    margin-top: 30px;
+  }
+  .con_point .box_point .inn_trade_surpport:nth-child(4) .left::before {
+    top: 10px;
+    left: -37px;
+    max-width: 135px;
+  }
+}
+
+.con_dream .box_dream .inn_title {
+  position: relative;
+  padding: 70px 0;
+}
+.con_dream .box_dream .inn_title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/wp-content/uploads/2024/11/dec_dream-1.png);
+}
+.con_dream .box_dream .inn_title h2 {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 31px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+  line-height: 1.8;
+  -webkit-text-decoration: underline #D75184 3px;
+          text-decoration: underline #D75184 3px;
+  text-underline-offset: 5px;
+}
+.con_dream .box_dream .wrp_dream {
+  max-width: 900px;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_dream .box_dream .inn_dream.f_dream {
+  width: 70%;
+}
+.con_dream .box_dream .inn_dream.t_dream {
+  margin-top: 30px;
+}
+.con_dream .box_dream .inn_dream_flex {
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.con_dream .box_dream .inn_dream_flex .items:nth-child(1) {
+  width: 50%;
+  margin-top: 30px;
+}
+.con_dream .box_dream .inn_dream_flex .items:nth-child(2) {
+  width: 45%;
+  margin-top: -160px;
+  margin-left: 5%;
+}
+@media screen and (max-width: 767px) {
+  .con_dream .box_dream .inn_title {
+    padding: 60px 0 20px 0;
+  }
+  .con_dream .box_dream .inn_title h2 {
+    text-decoration: none;
+    line-height: 1.4;
+  }
+  .con_dream .box_dream .inn_title h2 .cst_small {
+    font-size: 24px;
+  }
+  .con_dream .box_dream .wrp_dream {
+    width: 100%;
+  }
+}
+
+.con_worry {
+  margin-top: 40px;
+}
+.con_worry .box_worry {
+  max-width: 1000px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_worry .box_worry .inn_title {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px 30px;
+  text-align: center;
+  background-color: #7A5263;
+}
+.con_worry .box_worry .inn_title::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  width: 90%;
+  height: 3px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.con_worry .box_worry .inn_title::after {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  width: 90%;
+  height: 3px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.con_worry .box_worry .inn_title h2 {
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 28px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+  color: #fff;
+}
+.con_worry .box_worry .inn_title .img {
+  max-width: 50px;
+}
+.con_worry .box_worry .inn_worry {
+  position: relative;
+  background-color: #967885;
+}
+.con_worry .box_worry .inn_worry::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/wp-content/uploads/2024/11/23122866-1.png);
+  z-index: 0;
+}
+.con_worry .box_worry .inn_worry .img {
+  position: relative;
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+  z-index: 1;
+}
+.con_worry .box_worry .inn_worry .img:first-child {
+  padding-top: 60px;
+}
+.con_worry .box_worry .inn_worry .img:last-child {
+  padding-bottom: 60px;
+}
+@media screen and (min-width: 768px) and (max-width: 890px) {
+  .con_worry .box_worry .inn_title {
+    align-items: center;
+  }
+  .con_worry .box_worry .inn_title h2 {
+    width: 70%;
+  }
+  .con_worry .box_worry .inn_worry {
+    padding-bottom: 40px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .con_worry {
+    margin-top: 0;
+  }
+  .con_worry .box_worry .inn_title {
+    padding: 30px 15px;
+    justify-content: flex-start;
+  }
+  .con_worry .box_worry .inn_title h2 {
+    position: relative;
+    font-size: 21px;
+    text-align: left;
+  }
+  .con_worry .box_worry .inn_title h2::after {
+    content: "";
+    position: absolute;
+    bottom: -35px;
+    right: -20px;
+    width: 40px;
+    height: 100%;
+    background-image: url(/wp-content/uploads/2024/11/tit_wy_left.png);
+    background-size: 100%;
+  }
+  .con_worry .box_worry .inn_worry::before {
+    background-image: url(/wp-content/uploads/2024/11/23122866-1-sp.png);
+  }
+  .con_worry .box_worry .inn_worry .img {
+    width: 100%;
+    padding-top: 60px;
+  }
+}
+
+.con_schedule {
+  margin-top: 70px;
+  padding: 60px 0;
+  background-image: url(/wp-content/uploads/2024/11/bg_schedule.png);
+}
+.con_schedule .box_schedule .inn_title {
+  text-align: center;
+}
+.con_schedule .box_schedule .inn_title h2 {
+  text-align: center;
+  font-size: 28px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+  position: relative;
+}
+.con_schedule .box_schedule .inn_title h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  width: 32%;
+  height: 4px;
+  margin: 0 auto;
+  border-radius: 9999px;
+  background-color: #D75184;
+}
+.con_schedule .box_schedule .inn_schedule {
+  max-width: 800px;
+  width: 90%;
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_schedule .box_schedule .inn_schedule .img:nth-child(2) {
+  margin-top: 25px;
+}
+@media screen and (max-width: 767px) {
+  .con_schedule {
+    margin-top: 0;
+    background-size: cover;
+  }
+  .con_schedule .box_schedule .inn_title h2::after {
+    width: 90%;
+  }
+  .con_schedule .box_schedule .inn_schedule .img:nth-child(4) {
+    margin-top: 25px;
+  }
+}
+
+.con_reason {
+  position: relative;
+  padding: 70px 0;
+}
+.con_reason::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 900px;
+  background-image: url(/wp-content/uploads/2024/11/bg_reason_top.png);
+  background-size: auto;
+  z-index: -1;
+}
+.con_reason::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 900px;
+  background-image: url(/wp-content/uploads/2024/11/bg_reason_bottom.png);
+  background-size: auto;
+  z-index: -1;
+}
+.con_reason .box_reason {
+  max-width: 900px;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_reason .box_reason .inn_title {
+  max-width: 650px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_reason .box_reason .inn_reason {
+  margin-top: 60px;
+}
+.con_reason .box_reason .inn_reason .flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.con_reason .box_reason .inn_reason .flex .left {
+  width: 70%;
+}
+.con_reason .box_reason .inn_reason .flex .left .step {
+  display: inline-block;
+  position: relative;
+  font-size: 33px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+}
+.con_reason .box_reason .inn_reason .flex .left .step::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -25px;
+  width: 32px;
+  height: 27px;
+  background-image: url(/wp-content/uploads/2024/11/ic_reason.png);
+  background-size: contain;
+}
+.con_reason .box_reason .inn_reason .flex .left .tit {
+  color: #D75184;
+  font-size: 22px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+}
+.con_reason .box_reason .inn_reason .flex .left .txt {
+  margin-top: 15px;
+  font-family: "Zen Maru Gothic";
+}
+.con_reason .box_reason .inn_reason .flex .right {
+  width: 25%;
+  margin-left: 5%;
+}
+.con_reason .box_reason .inn_reason .img {
+  margin-top: 25px;
+}
+.con_reason .box_reason .img_bottom {
+  margin-top: 60px;
+}
+.con_reason .box_reason .img_bottom .img {
+  max-width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media screen and (max-width: 767px) {
+  .con_reason .box_reason {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .con_reason .box_reason .inn_reason .flex .left {
+    width: 100%;
+  }
+  .con_reason .box_reason .inn_reason .flex .left .img {
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .con_reason .box_reason .inn_reason .flex .left .img img {
+    width: 50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .con_reason .box_reason .img_bottom {
+    margin-top: 40px;
+  }
+}
+
+.con_greeting {
+  margin-top: 70px;
+}
+.con_greeting .box_greeting {
+  max-width: 900px;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_greeting .box_greeting .inn_flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.con_greeting .box_greeting .inn_flex .left {
+  width: 40%;
+}
+.con_greeting .box_greeting .inn_flex .left .name {
+  margin-top: 5px;
+  text-align: center;
+  font-family: "Zen Maru Gothic";
+  font-weight: 500;
+}
+.con_greeting .box_greeting .inn_flex .right {
+  width: 55%;
+  margin-left: 5%;
+}
+.con_greeting .box_greeting .inn_flex .right .tit {
+  color: #fff;
+  font-size: 23px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+  text-align: center;
+  background-image: url(/wp-content/uploads/2024/11/dec_hukidashi.png);
+}
+.con_greeting .box_greeting .inn_flex .right .txt {
+  font-family: "Zen Maru Gothic";
+}
+@media screen and (max-width: 767px) {
+  .con_greeting {
+    padding-bottom: 60px;
+  }
+  .con_greeting .box_greeting {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .con_greeting .box_greeting .inn_flex .left {
+    width: 85%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .con_greeting .box_greeting .inn_flex .right {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+.con_st_voice {
+  padding: 70px 0;
+  background-image: url(/wp-content/uploads/2024/11/100288-1.png);
+}
+.con_st_voice .box_st_voice {
+  max-width: 900px;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_st_voice .box_st_voice .inn_title {
+  max-width: 650px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_st_voice .box_st_voice .inn_st_voice {
+  margin-top: 40px;
+}
+.con_st_voice .box_st_voice .inn_st_voice .content {
+  position: relative;
+  padding: 30px 40px;
+  background-color: #D75184;
+}
+.con_st_voice .box_st_voice .inn_st_voice .content:nth-child(2) {
+  margin-top: 30px;
+  background-color: #E06996;
+}
+.con_st_voice .box_st_voice .inn_st_voice .content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background-color: #ED96BC;
+}
+.con_st_voice .box_st_voice .inn_st_voice .flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0 60px;
+}
+.con_st_voice .box_st_voice .inn_st_voice .flex .tit {
+  width: 75%;
+  margin-left: 5%;
+  text-align: center;
+  color: #fff;
+  font-size: 23px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+}
+.con_st_voice .box_st_voice .inn_st_voice .flex .img {
+  max-width: 120px;
+  width: 20%;
+}
+.con_st_voice .box_st_voice .inn_st_voice .txt {
+  margin-top: 20px;
+  color: #fff;
+  font-family: "Zen Maru Gothic";
+  font-weight: 400;
+  line-height: 1.6;
+}
+@media screen and (max-width: 767px) {
+  .con_st_voice {
+    background-size: cover;
+  }
+  .con_st_voice .box_st_voice .inn_st_voice {
+    margin-top: 40px;
+  }
+  .con_st_voice .box_st_voice .inn_st_voice .flex {
+    padding: 0 10px;
+  }
+  .con_st_voice .box_st_voice .inn_st_voice .flex .tit {
+    width: 100%;
+    margin-top: 15px;
+    margin-left: 0;
+  }
+  .con_st_voice .box_st_voice .inn_st_voice .flex .img {
+    max-width: 150px;
+    width: 100%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.con_exchange {
+  padding: 60px 0;
+  background-color: #F9F9F9;
+}
+.con_exchange .box_exchange {
+  max-width: 900px;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_exchange .box_exchange .tit {
+  text-align: center;
+  font-size: 15px;
+  font-family: "Noto Sans JP";
+  font-weight: bold;
+  color: #EB1616;
+}
+.con_exchange .box_exchange .txt {
+  margin-top: 20px;
+  font-size: 14px;
+  font-family: "Noto Sans JP";
+}
+@media screen and (max-width: 767px) {
+  .con_exchange .box_exchange {
+    width: 80%;
+  }
+}
+
+.con_form .box_form {
+  max-width: 900px;
+  width: 90%;
+  margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_form .box_form .ctxt {
+  margin-top: 50px;
+  text-align: center;
+  font-family: "Noto Sans JP";
+}
+.con_form .box_form .wpcf7 {
+  margin-top: 30px;
+}
+.con_form .box_form .inn_title {
+  display: block;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+  text-align: center;
+}
+.con_form .box_form .inn_title h2 {
+  position: relative;
+  display: inline-block;
+  font-size: 28px;
+  font-weight: 900;
+}
+.con_form .box_form .inn_title h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: #D75184;
+}
+.con_form .box_form .form_content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+.con_form .box_form .form_content .tit {
+  width: 30%;
+}
+.con_form .box_form .form_content .tit p {
+  font-family: "Noto Sans JP";
+  font-weight: 500;
+}
+.con_form .box_form .form_content .inn_form {
+  width: 70%;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #F2F2F2;
+}
+.con_form .box_form .form_content .inn_form .item-box {
+  width: 48%;
+}
+.con_form .box_form .form_content .inn_form .wpcf7-form-control-wrap ::-moz-placeholder {
+  color: #C4C4C4;
+}
+.con_form .box_form .form_content .inn_form .wpcf7-form-control-wrap ::placeholder {
+  color: #C4C4C4;
+}
+.con_form .box_form .form_content .inn_form textarea {
+  max-height: 150px;
+}
+.con_form .box_form .form_content:nth-child(3) .inn_form, .con_form .box_form .form_content:nth-child(4) .inn_form {
+  background: none;
+  padding: 0;
+}
+.con_form .box_form .form_content:nth-child(3) .inn_form .item-box, .con_form .box_form .form_content:nth-child(4) .inn_form .item-box {
+  margin-left: 4%;
+  padding: 10px;
+  background-color: #F2F2F2;
+}
+.con_form .box_form .form_content:nth-child(3) .inn_form .item-box:first-child, .con_form .box_form .form_content:nth-child(4) .inn_form .item-box:first-child {
+  margin-left: 0;
+}
+.con_form .box_form .btn_submit {
+  text-align: center;
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_form .box_form .btn_submit p {
+  position: relative;
+  display: inline-block;
+}
+.con_form .box_form .btn_submit p::after {
+  position: absolute;
+  content: "";
+  background-image: url(/wp-content/uploads/2024/11/Polygon-2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 12px;
+  height: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 14px;
+}
+.con_form .box_form .btn_submit input {
+  position: relative;
+  padding: 18px 40px;
+  color: #fff;
+  background-color: #D75184;
+  border-radius: 9999px;
+  font-family: "Noto Sans JP";
+  font-size: 18px;
+  transition: 0.3s;
+}
+.con_form .box_form .btn_submit input::after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  width: 0;
+  height: 0;
+  margin-top: -5px;
+  border: 5px solid transparent;
+  border-left: 5px solid #fff;
+}
+.con_form .box_form .btn_submit input:hover {
+  opacity: 0.85;
+}
+.con_form .box_form .btn_submit input:hover::after {
+  left: 27px;
+}
+.con_form .box_form .btn_submit .wpcf7-spinner {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .con_form .box_form .form_content .tit {
+    width: 100%;
+  }
+  .con_form .box_form .form_content .inn_form {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .con_form .box_form .form_content .inn_form textarea {
+    max-height: 200px;
+  }
+  .con_form .box_form .btn_submit {
+    margin-top: 35px;
+  }
+}
+
+.con_faq {
+  margin-top: 70px;
+  padding: 70px 0;
+  background-color: #F9F9F9;
+}
+.con_faq .box_faq {
+  max-width: 900px;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.con_faq .box_faq .inn_title {
+  display: block;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+  text-align: center;
+}
+.con_faq .box_faq .inn_title h2 {
+  position: relative;
+  display: inline-block;
+  font-size: 28px;
+  font-weight: 900;
+}
+.con_faq .box_faq .inn_title h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: #D75184;
+}
+
+.accordion {
+  margin-top: 50px;
+}
+.accordion .accordion-content {
+  display: none;
+  padding: 10px 0;
+  background-color: #F9F9F9;
+}
+.accordion .accordion-content span {
+  position: relative;
+  line-height: 1.8;
+  font-weight: 400;
+  font-family: "Zen Maru Gothic";
+}
+.accordion .accordion-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #D75184;
+  padding: 16px 45px 16px 20px;
+  margin: 10px 0 0;
+  transition: background 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+.accordion .accordion-header span {
+  color: #fff;
+  font-family: "Zen Maru Gothic";
+  font-weight: 700;
+}
+.accordion .accordion-header .faq_left {
+  width: 5%;
+  margin-right: 0;
+  color: #fff;
+  font-size: 24px;
+  font-family: "Zen Maru Gothic";
+  font-weight: 900;
+}
+.accordion .accordion-header .faq_right {
+  width: 90%;
+}
+.accordion .accordion-header::before, .accordion .accordion-header::after {
+  position: absolute;
+  content: "";
+  top: 1px;
+  right: 20px;
+  bottom: 0;
+  width: 12px;
+  height: 2px;
+  margin: auto;
+  background: #fff;
+}
+.accordion .accordion-header::after {
+  transform: rotate(-90deg);
+  transition: transform 0.3s;
+}
+.accordion .accordion-header.active::after {
+  transform: rotate(0deg);
+}
+@media screen and (max-width: 767px) {
+  .accordion .accordion-header {
+    margin-top: 20px;
+  }
+  .accordion .accordion-header .faq_left {
+    width: 8%;
+    margin-right: 2%;
+    color: #fff;
+    font-size: 24px;
+    font-family: "Zen Maru Gothic";
+    font-weight: 900;
+  }
+  .accordion .accordion-header .faq_right {
+    width: 90%;
+  }
+}
+
+/* footer */
+.con_footer {
+  width: 100%;
+  padding: 6rem 0;
+  background-color: #D75184;
+}
+.con_footer .logo a {
+  display: block;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+.con_footer .copyright {
+  color: #fff;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.fix_btn_sp {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 0;
+  z-index: 2;
+}
+.fix_btn_sp .btn_cta {
+  width: 49%;
+}
+.fix_btn_sp .btn_line {
+  width: 49%;
+  margin-left: 2%;
+}

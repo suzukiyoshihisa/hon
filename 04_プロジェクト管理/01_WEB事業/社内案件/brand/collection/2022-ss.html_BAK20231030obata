@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="responsive ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="ja"><![endif]-->
+<!--[if IE 7]><html class="responsive ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="ja"><![endif]-->
+<!--[if IE 8]><html class="responsive ie ie8 ie-lt10 ie-lt9 no-js" lang="ja"><![endif]-->
+<!--[if IE 9]><html class="responsive ie ie9 ie-lt10 no-js" lang="ja"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="responsive no-js" lang="ja">
+<!--<![endif]-->
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-65426891-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-65426891-1');
+</script>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="author" content="MID">
+<title>COLLECTION 2022-S/S | WANSIE TOKYO BRANDSITE</title>
+
+<!-- SEO -->
+<meta name="description" content="WANSIEは実用服にファッション性・機能美を取り入れ、キャンプ、ガーデニング、農業、DIYなどアウトドア・ワークシーンから、街でも着られるタウンユースまで幅広く提案いたします。WANSIEならではのデザイン性で、着る人の日常を華やかにする、そういうモノ作りを目指していきます。オリジナルユニフォーム製作も承っています。">
+
+<!-- Mobile -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+
+<!-- Viewport -->
+<meta name="viewport" content="width=device-width, shrink-to-fit=no">
+
+<!-- Styles -->
+<link rel="stylesheet" href="../shared/css/font.css">
+<link rel="stylesheet" href="../shared/css/common.css">
+<link rel="stylesheet" href="../shared/css/lightbox.css">
+<link rel="stylesheet" href="../shared/css/shared.css">
+<link rel="stylesheet" href="../shared/css/collections.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/asb2mnu.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" crossorigin="anonymous"></script>
+<script>
+	$(window).on('load', function(){
+  $('body').removeClass('fadeout');
+});
+	</script>
+	
+</head>
+<body class="fadeout">
+<main>
+  <div id="container">
+    <div id="sidebar">
+      <p class="logo"><a href="../index.html"><img src="../shared/img/shared/logo.png" alt="wansie"></a></p>
+      <div class="hmenu_wrap pc">
+        <div class="hmenu">
+        <span class="line l1 step1"></span> 
+        <span class="line l2 step1"></span> 
+        <span class="line l3 step1"></span> 
+        <span class="line l1 step2"></span> 
+        <span class="line l2 step2"></span> 
+        <span class="line l3 step2"></span>
+        </div>
+      </div>
+      
+      <div id="menu_toggle" class="menu_toggle">
+        <p class="logo pc"><a href="../index.html"><img src="../shared/img/shared/logo.png" alt="wansie"></a></p>
+        <ul>
+          <li><span>collections</span>		<ul class="sub">              
+              <li><a href="../collection/2023-fw.html">F/W 2023</a></li>
+              <li><a href="../collection/2023-ss.html">S/S 2023</a></li>
+              <li><a href="../collection/2022-fw.html">F/W 2022</a></li>
+              <li><a href="../collection/2022-ss.html">S/S 2022</a></li>
+              <li><a href="../collection/2021-aw.html">F/W 2021</a></li>
+              <li><a href="../collection/2021-ss.html">S/S 2021</a></li>
+              <li><a href="../collection/2020-aw.html">F/W 2020</a></li>
+              <li><a href="../collection/2020-ss.html">S/S 2020</a></li>
+
+            </ul>
+          </li>
+          <li><a href="https://store.wansie.tokyo/" target="_blank">ONLINE SHOP</a></li>
+          <li><a href="https://wansie.tokyo/uniform/" target="_blank">UNIFORM</a></li>          <li><a href="../shop/index.html">SHOP INFO</a></li>
+          <li><a href="../contact.html">contact</a></li>
+          <li><a href="../about.html">about</a></li>
+        </ul>        <ul class="sns">
+          <li><a href="https://twitter.com/wansietokyo" target="_blank"><img src="/shared/img/shared/icon_tw.png" alt="twitter"></a></li>
+          <li><a href="https://www.instagram.com/wansie_flagshipstore/" target="_blank"><img src="/shared/img/shared/icon_ins.png" alt="instagram"></a></li>
+          <li><a href="https://www.facebook.com/wansietokyo/" target="_blank"><img src="/shared/img/shared/icon_fb.png" alt="facebook"></a></li>
+          <!-- <li><a href="https://www.amazon.co.jp/s?rh=n%3A352484011%2Cp_4%3AWANSIE&ref=bl_sl_s_ap_web_352484011" target="_blank"><img src="/shared/img/shared/icon_amazon.png" alt="Amazon"></a></li> -->
+          <li><img src="/shared/img/shared/icon_imim.png" alt="imim"></li>
+        </ul>
+        
+        <p class="close sp"><img src="../shared/img/shared/hamburger_close.png" alt="close"></p>
+      </div>
+      <div class="navmask"></div>
+      <footer>
+        <p class="shop_name fnt-futura">WANSIE FLAGSHIP STORE</p>
+        <p class="shop_info">Shinjuku, Shinjuku-ku, Tokyo 160-0022<br />
+        #102 Shop　#201 Atelier　#202 Office<br />
+        TEL <span class="telhref">03-6384-2884</span>   OPEN 2 P.M. - 12 A.M.</p>        <ul class="sns">
+          <li><a href="https://twitter.com/wansietokyo" target="_blank"><img src="/shared/img/shared/icon_tw.png" alt="twitter"></a></li>
+          <li><a href="https://www.instagram.com/wansie_flagshipstore/" target="_blank"><img src="/shared/img/shared/icon_ins.png" alt="instagram"></a></li>
+          <li><a href="https://www.facebook.com/wansietokyo/" target="_blank"><img src="/shared/img/shared/icon_fb.png" alt="facebook"></a></li>
+          <!-- <li><a href="https://www.amazon.co.jp/s?rh=n%3A352484011%2Cp_4%3AWANSIE&ref=bl_sl_s_ap_web_352484011" target="_blank"><img src="/shared/img/shared/icon_amazon.png" alt="Amazon"></a></li> -->
+          <li><img src="/shared/img/shared/icon_imim.png" alt="imim"></li>
+        </ul>
+      </footer>
+      <div class="hamburger sp"><img src="../shared/img/shared/hamburger_btn.png" alt="hamburger button"></div>
+    </div>
+    
+
+    <section class="nav-target block">
+      <div class="clipInner">
+        <div class="clip_youtupe">
+          <iframe src="https://www.youtube.com/embed/zajhHvKHrtY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="gallery clearfix">
+          <a class="" href="../shared/img/collections/2022-ss/img001.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img001.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img002.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img002.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img003.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img003.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img004.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img004.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img005.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img005.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img006.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img006.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img007.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img007.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img008.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img008.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img009.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img009.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img010.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img010.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img011.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img011.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img012.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img012.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img013.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img013.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img014.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img014.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img015.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img015.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img016.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img016.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img017.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img017.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img018.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img018.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img019.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img019.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img020.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img020.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img021.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img021.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img022.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img022.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img023.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img023.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img024.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img024.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img025.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img025.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img026.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img026.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img027.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img027.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img028.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img028.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img029.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img029.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img030.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img030.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img031.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img031.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img032.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img032.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img033.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img033.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img034.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img034.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img035.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img035.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img036.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img036.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img037.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img037.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img038.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img038.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img039.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img039.jpg" alt=""/></a>
+          <a class="" href="../shared/img/collections/2022-ss/img040.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img040.jpg" alt=""/></a>		
+          <a class="" href="../shared/img/collections/2022-ss/img041.jpg" data-lightbox="2022-ss"><img  src="../shared/img/collections/2022-ss/img041.jpg" alt=""/></a>					
+        </div>
+      </div>
+      
+    </section>
+  </div>
+  
+  <footer class="w_1024">
+    <p class="shop_name fnt-futura">WANSIE FLAGSHIP STORE</p>
+    <p class="shop_info">Shinjuku, Shinjuku-ku, Tokyo 160-0022<br />
+    #102 Shop　#201 Atelier　#202 Office<br />
+    TEL <a href="tel:0363842884" class="telhref">03-6384-2884</a>   OPEN 2 P.M. - 12 A.M.</p>        <ul class="sns">
+          <li><a href="https://twitter.com/wansietokyo" target="_blank"><img src="/shared/img/shared/icon_tw.png" alt="twitter"></a></li>
+          <li><a href="https://www.instagram.com/wansie_flagshipstore/" target="_blank"><img src="/shared/img/shared/icon_ins.png" alt="instagram"></a></li>
+          <li><a href="https://www.facebook.com/wansietokyo/" target="_blank"><img src="/shared/img/shared/icon_fb.png" alt="facebook"></a></li>
+          <!-- <li><a href="https://www.amazon.co.jp/s?rh=n%3A352484011%2Cp_4%3AWANSIE&ref=bl_sl_s_ap_web_352484011" target="_blank"><img src="/shared/img/shared/icon_amazon.png" alt="Amazon"></a></li> -->
+          <li><img src="/shared/img/shared/icon_imim.png" alt="imim"></li>
+        </ul>
+  </footer>
+</main>
+
+<!-- Libraries script --> 
+<script src="../shared/js/base.js"></script> 
+<script src="../shared/js/autoload.js"></script> 
+<script src="../shared/js/jquery.min.js"></script> 
+<script src="../shared/js/lightbox.js"></script> 
+<script src="../shared/js/common.js"></script> 
+<script src="../shared/js/shared.js"></script>
+<script>
+
+</script>  
+</body>
+</html>
