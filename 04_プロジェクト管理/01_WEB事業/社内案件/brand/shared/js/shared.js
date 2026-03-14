@@ -73,3 +73,26 @@ document.addEventListener("touchmove", function(e) {
 }, {
     passive: false
 });
+
+// Page transition: fade in on load
+$(window).on('load', function() {
+  $('body').removeClass('fadeout');
+});
+if (document.readyState === 'complete') {
+  $('body').removeClass('fadeout');
+}
+
+// Page transition: fade out on link click
+$(function() {
+  $('a:not([href^="#"]):not([target])').on('click', function(e) {
+    e.preventDefault();
+    var url = $(this).attr('href');
+    if (url !== '') {
+      $('body').addClass('fadeout');
+      setTimeout(function() {
+        window.location = url;
+      }, 800);
+    }
+    return false;
+  });
+});
