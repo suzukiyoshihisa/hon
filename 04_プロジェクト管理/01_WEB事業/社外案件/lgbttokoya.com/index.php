@@ -30,14 +30,12 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 
-<script type="text/javascript" src="http://www.mb-mid.com/js/jquery.bxSlider.js"></script>
-
 <script type="text/javascript">
 
     google.load("feeds", "1");
 
     function initialize() {
-      var feed = new google.feeds.Feed("http://lgbttokoya.hatenablog.com/feed");
+      var feed = new google.feeds.Feed("https://lgbttokoya.hatenablog.com/feed");
   feed.setNumEntries(10); 
   feed.load(function(result) { 
     if (!result.error) { 

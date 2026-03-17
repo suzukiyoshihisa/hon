@@ -133,7 +133,7 @@ $mailSignature = <<< FOOTER
 
 ──────────────────────
 東京荒川区/日暮里、西日暮里 ”LGBTフレンドリー床屋”
-http://www.lgbttokoya.com/
+https://www.lgbttokoya.com/
 ──────────────────────
 
 FOOTER;
