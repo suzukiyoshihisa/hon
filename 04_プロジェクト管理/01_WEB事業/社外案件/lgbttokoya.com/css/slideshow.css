@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+
+#slideshow {
+	position:relative;
+	clear: both;
+	float: left;
+	height: 365px;
+	width: 645px;
+	margin-bottom: 20px;
+}
+#slideshow IMG {
+    position:absolute;
+    z-index:8;
+    opacity:0.0;
+}
+#slideshow IMG.active {
+    position:absolute;
+    z-index:10;
+    opacity:1.0;
+}
+#slideshow IMG.last-active {
+    z-index:9;
+}
+
+.clear {
+	clear: both;
+}

@@ -1,0 +1,6 @@
+
+#%PHP_START%#
+# Make no changes between _START and _END tag, generated automatically.
+AddHandler application/x-lsphp56 .php
+#%PHP_END%#
+

@@ -1,0 +1,328 @@
+@charset "UTF-8";
+
+
+/* header、footer、ナビゲーションなどのベースレイアウト設定
+------------------------------------------------------*/
+
+body {background:#f0eade; font:normal normal normal 80%/1.0 "ＭＳ Ｐゴシック", "HiraKakuPro-W3", "ヒラギノ角ゴ Pro W3", Osaka sans-serif ;text-align:center;}
+
+a img {border:none;}
+a:link,a:visited {text-decoration:none;color:#4d4d4d;}
+a:hover {text-decoration:underline;}
+
+/* div#wrapper
+------------------------------------------------------*/
+#wrapper {width:922px;margin:0 auto;text-align:left;border-left:1px solid #d6d4d1;border-right:1px solid #d6d4d1;background:#FFF;}
+
+/* div#header
+------------------------------------------------------*/
+#header {height:240px;position:relative;z-index:10000;}
+#header h1 {height:20px; background:#f1f1f1;color:#64605f;padding:8px 0 0 10px;}
+#header #headerInformation {position:absolute;right:20px;top:3px;}
+#header #lgbtLogo {position:absolute;left:20px;top:48px;}
+#header #copy {position:absolute;left:180px;top:90px;}
+
+
+#header #globalNavigation {margin:0; position:absolute;top:182px;height:28px;border-bottom:1px solid #d6d4d1;left:10px;width:900px;}
+#header #globalNavigation li{ margin:0 10px 0 0; float:left;list-style:none;}
+#header #globalNavigation li a{display:block; height:24px;text-indent:-1000px;overflow:hidden;}
+#header #globalNavigation #gn-profile a {background:url(../image/gn_profile.gif) no-repeat 0 0;width:90px;}
+#header #globalNavigation #gn-cut a {background:url(../image/gn_cut.gif) no-repeat 0 0;width:101px;}
+/*#header #globalNavigation #gn-facial_nail a {background:url(../image/gn_facial_nailcare.gif) no-repeat 0 0;width:87px;}*/
+#header #globalNavigation #gn-bridal a {background:url(../image/gn_bridal.gif) no-repeat 0 0;width:155px;}
+#header #globalNavigation #gn-healing a {background:url(../image/gn_healing.gif) no-repeat 0 0;width:142px;}
+#header #globalNavigation #gn-charter a {background:url(../image/gn_charter.gif) no-repeat 0 0;width:181px;}
+/*#header #globalNavigation #gn-nailcare a {background:url(../image/gn_nailcare.gif) no-repeat 0 0;width:61px;}
+#header #globalNavigation #gn-headspa a {background:url(../image/gn_headspa.gif) no-repeat 0 0;width:94px;}
+#header #globalNavigation #gn-josoko a {background:url(../image/gn_josoko.gif) no-repeat 0 0;width:218px;}*/
+#header #globalNavigation #gn-aboutus a {background:url(../image/gn_aboutus.gif) no-repeat 0 0;width:65px;}
+#header #globalNavigation #gn-aitaro-menu a {background:url(../image/gn_aitaro-menu.gif) no-repeat 0 0;width:122px;}
+#header #globalNavigation li a:hover{opacity:0.6;filter:alpha(opacity=60);}
+#header #globalNavigation li:nth-child(2) {display:block; height:20px; vertical-align: bottom;}
+
+#skipmenu {position:absolute;left:-2000px;width: 100px;}
+#header hr {clear:both;display:none;}
+
+
+/* div#contents
+------------------------------------------------------*/
+#contents {margin:15px 0;color:#783b09;}
+
+/* div#mainContents
+------------------------------------------------------*/
+#mainContents {float:left; width:655px; display:inline; /* for WinIE 5.X,6.0 */
+margin-left:20px;}
+
+#mainContents h1{
+	margin-top:0px!important;
+	padding:0px!important;
+}
+
+/* div#subContents
+------------------------------------------------------*/
+#subContents {
+	float:right;
+	width:225px;
+	margin-right:10px;
+		position: relative;
+	min-height:970px;
+
+}
+
+#subContents #subNavigation {width:225px;margin-bottom:15px;margin-left:2px;}
+#subContents #subNavigation ul{
+	margin: 0px;
+	padding-top: 15px;
+	padding-right: 0;
+	padding-bottom: 4px;
+	padding-left: 0;
+}
+
+
+#subContents #subNavigation li a{
+	display:block;
+	height:25px;
+	background:url(../image/sn_arrow.png) no-repeat 8px;
+	padding-left:0px;
+	line-height:25px;
+	color:#FFF;
+	font-size:1.2em;
+}
+#subContents #subNavigation li a:hover{text-decoration:none;background:#378aac url(../image/sn_arrow.png) no-repeat 8px ;}
+
+#subContents .division{
+	padding-bottom:6px;
+	margin-bottom:10px;
+	border-bottom:1px solid #ccc;
+	position: relative;
+}
+#subContents .division #shortcut {
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+#subContents .division #shortcut li{margin-bottom:8px;}
+#subContents .division #banner_mid{margin:10px;}
+#subContents .division .bannerList li:last-child{margin-bottom:0;}
+#subContents .division a:hover img{opacity:0.7;filter:alpha(opacity=70);}
+
+#subContents .division:last-child{
+	margin-bottom:0;
+	border-bottom:none;
+	position: absolute;
+	top: 270px;
+}
+
+
+
+/* clearfix float解除
+------------------------------------------------------*/
+/* For modern browsers */
+.cf:before,
+.cf:after{content:"";display:table;}
+.cf:after{clear:both;}
+
+/* For IE 6/7 (trigger hasLayout) */
+.cf {zoom:1;}
+
+
+.center{
+	height: auto;
+	width: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+/* div#footer
+------------------------------------------------------*/
+#footer {height:50px;background:#d5b285;position:relative;}
+#footer hr {display:none;}
+
+#footer #copyright{position:absolute;height:21px;width:263px;background:#FF0 url(../image/copyright.gif) no-repeat 0 0 ;top:13px; left:37% ;text-indent:-5000px;}
+
+
+
+/* 愛太郎メニューページ他　051205追加
+----------------------------------------------------------*/
+.youtube{ width:640px;
+height:360px}
+.aitaro_tb{
+	border-top-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-top-color: #A28770;
+	border-left-color: #A28770;
+}
+.aitaro_tb th{
+	font-weight: bold!important;
+	background-color: #a28770!Important;
+	text-align: center;
+	vertical-align: middle;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #A28770;
+	border-bottom-color: #A28770;
+	color: #FFF;
+	white-space: nowrap;
+}
+.aitaro_tb td{
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #A28770;
+	border-bottom-color: #A28770;
+	background-color: #F9F4F4;
+	padding: 10px!important;
+	}
+
+#contents ul{
+	margin-left: 20px;
+}
+
+
+mgb20{margin-bottom:20px;}
+
+
+.kakomi_box {
+	position:relative;
+	padding:20px;
+	margin-left:0px;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-align: center;
+	background-color: #F9F4F4;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	line-height: 1.5em;
+	margin-bottom: 25px;
+}
+
+.btn{
+	background-color: #A28770;
+	border: 1px solid #866C57;
+	border-radius: 10px;        /* CSS3草案 */
+	-webkit-border-radius: 10px;    /* Safari,Google Chrome用 */
+	-moz-border-radius: 10px;   /* Firefox用 */
+	margin-top: 20px;
+	width: 30%;
+	text-align: center;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	display: block!important;
+	font-weight:bold;
+	cursor:pointer;
+}
+.btn a:link,
+.btn a:visited,
+.btn a:active{
+	color: #FFF!important;
+	display: block!important;
+	text-decoration: none!important;
+}
+
+.btn:hover{
+	font-weight: bold;
+	color: #A28770!important;
+	background-color: #C4B3A4;
+	border: 1px solid #A28770;
+}
+
+
+.txt-M{font-size:1.2em;}
+.b{font-weight:bold;}
+
+
+.pic_tb{	border-top-style: none!important;
+	border-right-style: none!important;
+	border-bottom-style: none!important;
+	border-left-style: none!important;
+}
+.pic_tb td{
+	margin: 0px!Important;
+	padding: 0px!important;
+	border-top-style: none!important;
+	border-right-style: none!important;
+	border-bottom-style: none!important;
+	border-left-style: none!important;
+}
+.pic_tb td img{
+	margin: 0px;
+	padding: 0px;
+	height: auto;
+	width: 100%;
+}
+
+
+/*親*/
+.parent1				{
+	width:80%;
+	padding:0;
+	position:relative;
+	background-color: #DDC89A;
+	border-radius: 10px;        /* CSS3草案 */
+	-webkit-border-radius: 10px;    /* Safari,Google Chrome用 */
+	-moz-border-radius: 10px;   /* Firefox用 */
+}
+
+/*子*/
+.parent1 .child1			{
+	background-color: #E0C9C2;
+	position:relative;
+	border-radius: 10px;        /* CSS3草案 */
+	-webkit-border-radius: 10px;    /* Safari,Google Chrome用 */
+	-moz-border-radius: 10px;   /* Firefox用 */
+	/*テキストの補正*/
+	color:#563F36;
+	padding:10px 0;
+	font-weight: bold;
+	text-align: center;
+}
+
+/*擬似要素:after*/
+.parent1 .child1:after	{
+	content: ' ';
+	width:0;
+	height: 0;
+	position:absolute;
+	border:10px solid transparent;
+	border-top-color:#E0C9C2;
+	top:100%;
+	left:50%;
+}
+
+
+#cut dl.price {
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+	clear: left;
+}
+
+#cut dl.price dt{
+	clear: left;
+	float: left;
+	width: 17em;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 0.8em;
+	margin-left: 0;
+}
+
+#cut dl.price dd{
+	margin-left: 7.5em;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin-bottom: 0.8em;
+}
