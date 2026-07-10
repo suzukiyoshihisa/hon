@@ -1,0 +1,25 @@
+{
+  "sites": [
+    {
+      "name": "wansie",
+      "label": "wansie オンラインショップ",
+      "ga4_property_id": "371573590",
+      "search_console_url": "https://store.wansie.tokyo/",
+      "description": "wansie ECサイト"
+    },
+    {
+      "name": "wansie_uniform",
+      "label": "wansie ユニフォーム",
+      "ga4_property_id": "328679906",
+      "search_console_url": "https://wansie.tokyo/uniform/",
+      "description": "wansie ユニフォームサイト"
+    },
+    {
+      "name": "mid_group",
+      "label": "MID GROUP",
+      "ga4_property_id": "494273265",
+      "search_console_url": "sc-domain:mid-group.jp",
+      "description": "MID GROUPコーポレートサイト"
+    }
+  ]
+}

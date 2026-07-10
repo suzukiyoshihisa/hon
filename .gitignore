@@ -5,4 +5,5 @@ node_modules/
 # Google API 認証情報（機密）
 scripts/credentials.json
 scripts/token.json
+scripts/analytics_token.json
 scripts/client_secret_*.json
