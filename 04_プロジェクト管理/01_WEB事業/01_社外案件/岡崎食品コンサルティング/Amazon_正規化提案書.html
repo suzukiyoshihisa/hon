@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amazon 正規化・EC強化 提案書 ｜ 有限会社 岡崎 × 株式会社 HON</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Helvetica Neue', 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+    background: #f0f0f0;
+    color: #1a1a1a;
+  }
+
+  .slide-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .slide {
+    background: #fff;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ヘッダー共通 */
+  .slide-header {
+    background: #0d1f3c;
+    color: #fff;
+    padding: 18px 36px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .slide-header h1 {
+    font-size: 1.25em;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+  }
+
+  .slide-header .meta {
+    font-size: 0.7em;
+    opacity: 0.7;
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .accent-bar {
+    height: 4px;
+    background: linear-gradient(90deg, #f4900c, #ffd166);
+    flex-shrink: 0;
+  }
+
+  .slide-body {
+    flex: 1;
+    padding: 22px 36px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    overflow: hidden;
+  }
+
+  .section-label {
+    font-size: 0.66em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #f4900c;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .slide-title {
+    font-size: 1.05em;
+    font-weight: 700;
+    color: #0d1f3c;
+    line-height: 1.4;
+  }
+
+  /* ====== スライド1: 表紙 ====== */
+  .cover-slide .slide-body {
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    background: linear-gradient(135deg, #fff 60%, #fff8f0 100%);
+  }
+
+  .cover-slide .cover-tag {
+    font-size: 0.65em;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #f4900c;
+    background: #fff3e0;
+    border: 1px solid #f4900c;
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+
+  .cover-slide .cover-main {
+    font-size: 2em;
+    font-weight: 800;
+    color: #0d1f3c;
+    line-height: 1.25;
+    margin: 4px 0;
+  }
+
+  .cover-slide .cover-sub {
+    font-size: 0.85em;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  .cover-slide .cover-meta {
+    margin-top: 12px;
+    font-size: 0.7em;
+    color: #888;
+    line-height: 1.8;
+  }
+
+  .cover-deco {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+  }
+
+  .cover-deco-box {
+    border: 2px solid #f4900c;
+    border-radius: 8px;
+    padding: 8px 14px;
+    text-align: center;
+    background: #fff8f0;
+  }
+
+  .cover-deco-box .deco-num {
+    font-size: 1.8em;
+    font-weight: 800;
+    color: #f4900c;
+    line-height: 1;
+  }
+
+  .cover-deco-box .deco-label {
+    font-size: 0.6em;
+    color: #555;
+    margin-top: 2px;
+  }
+
+  /* ====== スライド2: 現状の問題 ====== */
+  .problem-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+  }
+
+  .problem-card {
+    border: 1.5px solid #f4d0a0;
+    border-radius: 10px;
+    padding: 14px 16px;
+    background: #fffbf5;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .problem-card .p-icon {
+    font-size: 1.6em;
+  }
+
+  .problem-card .p-title {
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #c75000;
+    line-height: 1.3;
+  }
+
+  .problem-card .p-desc {
+    font-size: 0.72em;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  .problem-lead {
+    font-size: 0.82em;
+    color: #333;
+    line-height: 1.7;
+    background: #fef3e2;
+    border-left: 4px solid #f4900c;
+    padding: 10px 16px;
+    border-radius: 0 6px 6px 0;
+  }
+
+  /* ====== スライド3: 無断出品一覧 ====== */
+  .asin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.72em;
+  }
+
+  .asin-table th {
+    background: #0d1f3c;
+    color: #fff;
+    padding: 7px 10px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .asin-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #e8e8e8;
+    color: #333;
+    line-height: 1.4;
+  }
+
+  .asin-table tr:nth-child(even) td {
+    background: #fafafa;
+  }
+
+  .asin-table .asin-code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    color: #0d1f3c;
+    font-weight: 600;
+  }
+
+  .badge-risk {
+    display: inline-block;
+    background: #fde8e8;
+    color: #c00;
+    font-size: 0.85em;
+    font-weight: 700;
+    padding: 1px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .badge-check {
+    display: inline-block;
+    background: #fff3e0;
+    color: #c75000;
+    font-size: 0.85em;
+    font-weight: 700;
+    padding: 1px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .table-note {
+    font-size: 0.65em;
+    color: #888;
+    margin-top: 6px;
+    line-height: 1.6;
+  }
+
+  /* ====== スライド4: 提案全体像 ====== */
+  .phase-flow {
+    display: grid;
+    grid-template-columns: 1fr 24px 1fr 24px 1fr;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .phase-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f4900c;
+    font-size: 1.2em;
+    font-weight: 700;
+  }
+
+  .phase-box {
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .phase-box.active {
+    border-color: #f4900c;
+    background: #fffbf5;
+  }
+
+  .phase-box .ph-num {
+    font-size: 0.62em;
+    font-weight: 700;
+    color: #f4900c;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .phase-box .ph-title {
+    font-size: 0.85em;
+    font-weight: 700;
+    color: #0d1f3c;
+    line-height: 1.3;
+  }
+
+  .phase-box .ph-period {
+    font-size: 0.65em;
+    color: #888;
+  }
+
+  .phase-box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 4px;
+  }
+
+  .phase-box ul li {
+    font-size: 0.7em;
+    color: #444;
+    padding-left: 12px;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .phase-box ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #f4900c;
+    font-size: 0.8em;
+  }
+
+  .goal-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  .goal-chip {
+    background: #0d1f3c;
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.7em;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* ====== スライド5〜7: フェーズ詳細 ====== */
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    flex: 1;
+  }
+
+  .detail-col h3 {
+    font-size: 0.7em;
+    color: #f4900c;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    border-bottom: 1.5px solid #ffdda0;
+    padding-bottom: 4px;
+  }
+
+  .detail-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .detail-col ul li {
+    font-size: 0.74em;
+    color: #333;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .detail-col ul li::before {
+    content: '●';
+    position: absolute;
+    left: 0;
+    color: #f4900c;
+    font-size: 0.6em;
+    top: 4px;
+  }
+
+  .phase-badge {
+    display: inline-block;
+    background: #f4900c;
+    color: #fff;
+    font-size: 0.65em;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 3px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+  }
+
+  .period-badge {
+    display: inline-block;
+    background: #0d1f3c;
+    color: #fff;
+    font-size: 0.65em;
+    font-weight: 600;
+    padding: 3px 14px;
+    border-radius: 20px;
+    margin-left: 8px;
+  }
+
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .kpi-card {
+    border: 1.5px solid #f4d0a0;
+    border-radius: 8px;
+    padding: 10px 12px;
+    background: #fffbf5;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .kpi-card .kpi-label {
+    font-size: 0.62em;
+    color: #888;
+    line-height: 1.3;
+  }
+
+  .kpi-card .kpi-val {
+    font-size: 1.05em;
+    font-weight: 800;
+    color: #0d1f3c;
+  }
+
+  .kpi-card .kpi-arrow {
+    font-size: 0.65em;
+    color: #f4900c;
+    font-weight: 700;
+  }
+
+  /* ====== スライド8: スケジュール ====== */
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: 100px repeat(6, 1fr);
+    gap: 6px;
+    font-size: 0.7em;
+  }
+
+  .schedule-grid .col-label {
+    background: #0d1f3c;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .schedule-grid .row-label {
+    padding: 4px 6px;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+  }
+
+  .schedule-cell {
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85em;
+    padding: 4px 2px;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .cell-active {
+    background: #f4900c;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .cell-partial {
+    background: #ffd99a;
+    color: #7a4000;
+  }
+
+  .cell-light {
+    background: #fff3e0;
+    color: #a06000;
+  }
+
+  .cell-empty {
+    background: #f5f5f5;
+    color: #ccc;
+  }
+
+  .cell-ongoing {
+    background: #0d1f3c;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  /* ====== スライド9: KPI目標 ====== */
+  .kpi-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.74em;
+  }
+
+  .kpi-table th {
+    background: #0d1f3c;
+    color: #fff;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .kpi-table th.phase-col {
+    text-align: center;
+  }
+
+  .kpi-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    line-height: 1.4;
+  }
+
+  .kpi-table td.phase-col {
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .kpi-table tr:nth-child(even) td {
+    background: #fafafa;
+  }
+
+  .kpi-highlight {
+    color: #f4900c;
+    font-weight: 700;
+  }
+
+  /* ====== スライド10: 費用・体制 ====== */
+  .fee-block {
+    background: #0d1f3c;
+    border-radius: 10px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    color: #fff;
+  }
+
+  .fee-block .fee-label {
+    font-size: 0.72em;
+    opacity: 0.7;
+    font-weight: 600;
+  }
+
+  .fee-block .fee-amount {
+    font-size: 2.2em;
+    font-weight: 800;
+    color: #ffd166;
+    line-height: 1;
+  }
+
+  .fee-block .fee-note {
+    font-size: 0.65em;
+    opacity: 0.6;
+    margin-top: 4px;
+  }
+
+  .fee-divider {
+    width: 1px;
+    height: 60px;
+    background: rgba(255,255,255,0.2);
+  }
+
+  .role-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+
+  .role-card {
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .role-card .role-name {
+    font-size: 0.78em;
+    font-weight: 700;
+    color: #0d1f3c;
+  }
+
+  .role-card .role-title {
+    font-size: 0.65em;
+    color: #888;
+    margin-bottom: 4px;
+  }
+
+  .role-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .role-card ul li {
+    font-size: 0.68em;
+    color: #444;
+    padding-left: 10px;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .role-card ul li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: #f4900c;
+  }
+
+  /* ====== スライド11: 次のアクション ====== */
+  .action-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .action-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    background: #fafafa;
+  }
+
+  .action-item .action-num {
+    width: 28px;
+    height: 28px;
+    background: #f4900c;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .action-item .action-content .action-title {
+    font-size: 0.82em;
+    font-weight: 700;
+    color: #0d1f3c;
+    margin-bottom: 2px;
+  }
+
+  .action-item .action-content .action-detail {
+    font-size: 0.7em;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  .action-item .action-owner {
+    margin-left: auto;
+    font-size: 0.65em;
+    font-weight: 700;
+    color: #888;
+    white-space: nowrap;
+    align-self: center;
+    background: #f0f0f0;
+    padding: 3px 10px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+<div class="slide-wrapper">
+
+  <!-- ===== スライド 1: 表紙 ===== -->
+  <div class="slide cover-slide">
+    <div class="slide-header">
+      <h1>Amazon 正規化 &amp; EC強化 提案書</h1>
+      <div class="meta">有限会社 岡崎 御中<br>株式会社 HON　2026年3月</div>
+    </div>
+    <div class="accent-bar"></div>
+    <div class="slide-body">
+      <span class="cover-tag">EC CONSULTING PROPOSAL</span>
+      <div class="cover-main">Amazon 正規店舗の立ち上げと<br>ブランド保護のご提案</div>
+      <div class="cover-sub">
+        現在Amazonに流通している岡崎食品商品は、<strong>第三者による無断出品</strong>が確認されています。<br>
+        正規セラーアカウントを開設し、ブランドを守り、正規ルートでの売上を確立します。
+      </div>
+      <div class="cover-meta">
+        提案元：株式会社 HON　担当：鈴木　｜　提案日：2026年3月30日
+      </div>
+    </div>
+    <div class="cover-deco">
+      <div class="cover-deco-box">
+        <div class="deco-num">6</div>
+        <div class="deco-label">無断出品ASIN<br>確認済み</div>
+      </div>
+      <div class="cover-deco-box">
+        <div class="deco-num">3</div>
+        <div class="deco-label">フェーズ構成</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== スライド 2: 現状の問題 ===== -->
+  <div class="slide">
+    <div class="slide-header">
+      <h1>現状の問題 — 無断出品がブランドを傷つけています</h1>
+      <div class="meta">CURRENT SITUATION</div>
+    </div>
+    <div class="accent-bar"></div>
+    <div class="slide-body">
+      <div class="problem-lead">
+        有限会社岡崎には現在 <strong>Amazon正規セラーアカウントが存在しません。</strong><br>
+        岡崎食品の商品名・商品写真を使った第三者出品が複数確認されており、対応が急務です。
+      </div>
+      <div class="problem-cards">
+        <div class="problem-card">
+          <div class="p-icon">⚠️</div>
+          <div class="p-title">品質・ブランドイメージの毀損</div>
+          <div class="p-desc">第三者が販売する商品の品質・鮮度・梱包を岡崎食品は管理できません。粗悪品・模倣品が岡崎食品の名義で流通するリスクがあります。</div>
+        </div>
+        <div class="problem-card">
+          <div class="p-icon">🔍</div>
+          <div class="p-title">正規ルートで買えない状態</div>
+          <div class="p-desc">消費者がAmazonで「岡崎食品」を検索しても、正規ページが存在しないため、無断出品ページへ流れてしまいます。売上・口コミが第三者に蓄積されます。</div>
+        </div>
+        <div class="problem-card">
+          <div class="p-icon">💬</div>
+          <div class="p-title">レビュー・価格が管理不能</div>
+          <div class="p-desc">価格の不当な吊り上げ・誤情報による低評価レビューが蓄積されるリスクがあります。一度ついた悪評は後から消すことが困難です。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== スライド 3: 無断出品一覧 ===== -->
+  <div class="slide">
+    <div class="slide-header">
+      <h1>無断出品の現状 — 確認済み6件</h1>
+      <div class="meta">UNAUTHORIZED LISTINGS</div>
+    </div>
+    <div class="accent-bar"></div>
+    <div class="slide-body">
+      <table class="asin-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>商品名</th>
+            <th>ASIN</th>
+            <th>出品者</th>
+            <th>状態</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>納豆麹漬 180g × 4袋</td>
+            <td class="asin-code">B08CSJ9HXL</td>
+            <td>食いしん坊侍 公式ストア</td>
+            <td><span class="badge-risk">無断出品確認</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>納豆麹漬 180g × 3袋</td>
+            <td class="asin-code">B08CSKBRVC</td>
+            <td>—</td>
+            <td><span class="badge-check">出品者要確認</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>納豆麹漬 国産ネギ使用 160g × 3袋</td>
+            <td class="asin-code">B0DP25F8J9</td>
+            <td>—</td>
+            <td><span class="badge-check">出品者要確認</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>納豆麹漬け 5種類の味 チューブ</td>
+            <td class="asin-code">B0C12T6MJ5</td>
+            <td>—</td>
+            <td><span class="badge-check">出品者要確認</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>食べるラー油と柿の種 160g</td>
+            <td class="asin-code">B082PCVZD6</td>
+            <td>ありがとう365</td>
+            <td><span class="badge-risk">ノーブランド名義</span></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>岡崎 無糖発酵あんバター 150g</td>
+            <td class="asin-code">B0BKL89MZG</td>
+            <td>—</td>
+            <td><span class="badge-check">出品者要確認</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="table-note">
+        ※ 出品者「要確認」は検索結果から特定できなかったもの。Amazonページの「販売元」欄を目視確認後、ブランドレジストリ経由で削除申請を行います。<br>
+        ※ 商品5はブランド名が「ノーブランド品」として登録されており、岡崎食品の商品であることが消費者に伝わらない状態です。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== スライド 4: 提案の全体像 ===== -->
+  <div class="slide">
+    <div class="slide-header">
+      <h1>提案の全体像 — 3フェーズで正規化から成長へ</h1>
+      <div class="meta">PROPOSAL OVERVIEW</div>
+    </div>
+    <div class="accent-bar"></div>
+    <div class="slide-body">
+      <div class="phase-flow">
+        <div class="phase-box active">
+          <div class="ph-num">Phase 1</div>
+          <div class="ph-title">基盤整備</div>
+          <div class="ph-period">1〜2ヶ月目</div>
+          <ul>
+            <li>Amazonセラーアカウント開設</li>
+            <li>正規商品ページ作成</li>
+            <li>ブランドレジストリ申請</li>
+            <li>競合・現状分析</li>
+          </ul>
+        </div>
+        <div class="phase-arrow">▶</div>
+        <div class="phase-box">
+          <div class="ph-num">Phase 2</div>
+          <div class="ph-title">正規化・信頼構築</div>
+          <div class="ph-period">2〜4ヶ月目</div>
+          <ul>
+            <li>無断出品ページへの削除申請</li>
+            <li>Amazon広告（スポンサー）開始</li>
+            <li>レビュー獲得施策</li>
+            <li>ページ改善（CTR/CVR）</li>
+          </ul>
+        </div>
+        <div class="phase-arrow">▶</div>
+        <div class="phase-box">
+          <div class="ph-num">Phase 3</div>
+          <div class="ph-title">成長・拡大</div>
+          <div class="ph-period">5ヶ月目〜</div>
+          <ul>
+            <li>広告予算最適化</li>
+            <li>新商品追加出品</li>
+            <li>楽天・自社ECとの連携</li>
+            <li>中長期ロードマップ更新</li>
+          </ul>
+        </div>
+      </div>
+      <div class="goal-row">
+        <div class="goal-chip">正規ページで<br>ブランドを守る</div>
+        <div class="goal-chip">無断出品を<br>排除する</div>
+        <div class="goal-chip">Amazon売上<br>月20万円〜</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== スライド 5: Phase 1 詳細 ===== -->
+  <div class="slide">
+    <div class="slide-header">
+      <h1>Phase 1 詳細 — 基盤整備</h1>
+      <div class="meta">PHASE 1 DETAIL</div>
+    </div>
+    <div class="accent-bar"></div>
+    <div class="slide-body">
+      <div>
+        <span class="phase-badge">Phase 1</span>
+        <span class="period-badge">1〜2ヶ月目</span>
+        <span class="slide-title" style="display:inline; margin-left:12px; font-size:0.9em;">正規セラーの開設とブランドの確立</span>
+      </div>
+      <div class="detail-grid">
+        <div class="detail-col">
+          <h3>EC実務（HONが代行）</h3>
+          <ul>
+            <li>Amazonセラーセントラル アカウント開設代行（個人→法人切替含む）</li>
+            <li>主力3商品の商品ページ新規作成<br>（タイトル・5点箇条書き・商品説明・A+コンテンツ）</li>
+            <li>商品画像のリサイズ・Amazonガイドライン対応</li>
+            <li>JANコード・ASINの整備</li>
+            <li>ブランドレジストリ申請（商標確認後）</li>
+          </ul>
+        </div>
+        <div class="detail-col">
+          <h3>コンサルティング（方針策定）</h3>
+          <ul>
+            <li>無断出品の全棚卸し（6件＋追加確認）</li>
+            <li>商品ラインナップ整理（何を・どの順序で・どの価格で出品するか）</li>
+            <li>競合調査（類似商品の価格帯・レビュー数・差別化ポイント）</li>
+            <li>ブランドコンセプトの言語化（商品ページ全体のトーン統一）</li>
+            <li>月次レポート共有（出品進捗・競合ベンチマーク）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <div class="kpi-label">正規ページ<br>出品数</div>
+          <div class="kpi-val">3商品</div>
+          <div class="kpi-arrow">▸ 主力品から</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">ブランド<br>レジストリ</div>
+          <div class="kpi-val">申請完了</div>
+          <div class="kpi-arrow">▸ 保護開始</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">競合調査<br>レポート</div>
+          <div class="kpi-val">1本</div>
+          <div class="kpi-arrow">▸ 月1回MTG</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">無断出品<br>棚卸し</div>
+          <div class="kpi-val">完了</div>
+          <div class="kpi-arrow">▸ 全件特定</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== スライド 6: Phase 2 詳細 ===== -->
+  <div class="slide">
+    <div class="slide-header">
+      <h1>Phase 2 詳細 — 正規化・信頼構築</h1>
+      <div class="meta">PHASE 2 DETAIL</div>
+    </div>
+    <div class="accent-bar"></div>
+    <div class="slide-body">
+      <div>
+        <span class="phase-badge">Phase 2</span>
+        <span class="period-badge">2〜4ヶ月目</span>
+        <span class="slide-title" style="display:inline; margin-left:12px; font-size:0.9em;">無断出品の排除と売上の立ち上げ</span>
+      </div>
+      <div class="detail-grid">
+        <div class="detail-col">
+          <h3>EC実務（HONが代行）</h3>
+          <ul>
+            <li>ブランドレジストリ経由の無断出品削除申請（全6件）</li>
+            <li>正規ページへの購買集約（カタログ統合申請）</li>
+            <li>Amazon スポンサープロダクト広告の初期設定・運用開始</li>
+            <li>全商品の正規ページへの拡大出品</li>
+            <li>同梱物（レビュー依頼カード）の設計・提案</li>
+          </ul>
+        </div>
+        <div class="detail-col">
+          <h3>コンサルティング（改善提案）</h3>
+          <ul>
+            <li>商品ページ改善提案（CTR・CVRのデータを見ながら）</li>
+            <li>レビュー獲得施策の設計（同梱物・フォローメール活用）</li>
+            <li>価格戦略の見直し（競合対比・利益率チェック）</li>
+            <li>広告効果測定（ROAS・ACoS管理）</li>
+            <li>月次レポート共有（売上・注文数・CVR・広告費）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <div class="kpi-label">月間売上<br>（Amazon）</div>
+          <div class="kpi-val">5万円〜</div>
+          <div class="kpi-arrow">▸ 立ち上げ期</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">レビュー<br>件数</div>
+          <div class="kpi-val">各10件〜</div>
+          <div class="kpi-arrow">▸ 信頼構築</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">無断出品<br>削除申請</div>
+          <div class="kpi-val">主要品</div>
+          <div class="kpi-arrow">▸ 順次排除</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">広告<br>ACoS</div>
+          <div class="kpi-val">30%以下</div>
+          <div class="kpi-arrow">▸ 効率化</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== スライド 7: Phase 3 詳細 ===== -->
+  <div class="slide">
+    <div class="slide-header">
+      <h1>Phase 3 詳細 — 成長・拡大</h1>
+      <div class="meta">PHASE 3 DETAIL</div>
+    </div>
+    <div class="accent-bar"></div>
+    <div class="slide-body">
+      <div>
+        <span class="phase-badge">Phase 3</span>
+        <span class="period-badge">5ヶ月目〜</span>
+        <span class="slide-title" style="display:inline; margin-left:12px; font-size:0.9em;">継続改善・楽天連携・自社EC展開</span>
+      </div>
+      <div class="detail-grid">
+        <div class="detail-col">
+          <h3>EC実務（HONが代行）</h3>
+          <ul>
+            <li>広告予算最適化・入札戦略の高度化</li>
+            <li>新商品（あんぽ柿・もも加工品など）の追加出品</li>
+            <li>セール・クーポン施策の実施（プライムデー・年末年始）</li>
+            <li>楽天市場への並行出品（申請・ページ作成）</li>
+            <li>無断出品の完全排除・継続監視</li>
+          </ul>
+        </div>
+        <div class="detail-col">
+          <h3>コンサルティング（戦略拡張）</h3>
+          <ul>
+            <li>楽天・Amazonの売上比較分析と注力チャネルの判断</li>
+            <li>新商品開発へのECフィードバック（レビューの声を製品改善へ）</li>
+            <li>自社ECサイト（BASE / Shopify）への展開検討</li>
+            <li>SNS・コンテンツマーケティングとの連携提案</li>
+            <li>中長期ロードマップ（年次）の更新・共有</li>
+          </ul>
+        </div>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <div class="kpi-label">月間売上<br>（Amazon）</div>
+          <div class="kpi-val">20万円〜</div>
+          <div class="kpi-arrow">▸ 成長軌道</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">レビュー<br>件数</div>
+          <div class="kpi-val">各30件〜</div>
+          <div class="kpi-arrow">▸ 信頼確立</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">出品<br>商品数</div>
+          <div class="kpi-val">全商品</div>
+          <div class="kpi-arrow">▸ 新商品含む</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">楽天市場<br>出店</div>
+          <div class="kpi-val">稼働開始</div>
+          <div class="kpi-arrow">▸ 複数チャネル</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== スライド 8: スケジュール ===== -->
+  <div class="slide">
+    <div class="slide-header">
+      <h1>推進スケジュール</h1>
+      <div class="meta">PROJECT SCHEDULE</div>
+    </div>
+    <div class="accent-bar"></div>
+    <div class="slide-body">
+      <div class="schedule-grid">
+        <!-- ヘッダー行 -->
+        <div class="col-label" style="background:transparent; color:#333; font-size:0.7em; justify-content: flex-start; padding-left: 4px;">施策</div>
+        <div class="col-label">1ヶ月目</div>
+        <div class="col-label">2ヶ月目</div>
+        <div class="col-label">3ヶ月目</div>
+        <div class="col-label">4ヶ月目</div>
+        <div class="col-label">5ヶ月目</div>
+        <div class="col-label">6ヶ月目〜</div>
+
+        <!-- セラーアカウント開設 -->
+        <div class="row-label">セラーアカウント開設</div>
+        <div class="schedule-cell cell-active">実施</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-empty">—</div>
+
+        <!-- 商品ページ作成 -->
+        <div class="row-label">正規商品ページ作成</div>
+        <div class="schedule-cell cell-active">主力3品</div>
+        <div class="schedule-cell cell-partial">全品拡大</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-empty">—</div>
+
+        <!-- ブランドレジストリ -->
+        <div class="row-label">ブランドレジストリ申請</div>
+        <div class="schedule-cell cell-active">申請</div>
+        <div class="schedule-cell cell-partial">審査中</div>
+        <div class="schedule-cell cell-light">承認</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-empty">—</div>
+
+        <!-- 無断出品削除 -->
+        <div class="row-label">無断出品 削除申請</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-active">申請開始</div>
+        <div class="schedule-cell cell-partial">順次対応</div>
+        <div class="schedule-cell cell-light">完全排除</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-empty">—</div>
+
+        <!-- 広告運用 -->
+        <div class="row-label">Amazon広告運用</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-active">開始</div>
+        <div class="schedule-cell cell-ongoing">継続</div>
+        <div class="schedule-cell cell-ongoing">継続</div>
+        <div class="schedule-cell cell-ongoing">継続</div>
+
+        <!-- 楽天出店 -->
+        <div class="row-label">楽天市場 出店</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-empty">—</div>
+        <div class="schedule-cell cell-active">申請・作成</div>
+        <div class="schedule-cell cell-ongoing">稼働</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== スライド 9: KPI目標 ===== -->
+  <div class="slide">
+    <div class="slide-header">
+      <h1>KPI目標 — 数値で管理し、成果を可視化します</h1>
+      <div class="meta">KPI &amp; TARGETS</div>
+    </div>
+    <div class="accent-bar"></div>
+    <div class="slide-body">
+      <table class="kpi-table">
+        <thead>
+          <tr>
+            <th>指標</th>
+            <th class="phase-col">Phase 1 目標<br><span style="font-weight:400; font-size:0.85em;">1〜2ヶ月</span></th>
+            <th class="phase-col">Phase 2 目標<br><span style="font-weight:400; font-size:0.85em;">2〜4ヶ月</span></th>
+            <th class="phase-col">Phase 3 目標<br><span style="font-weight:400; font-size:0.85em;">5ヶ月〜</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>正規ページ 出品数</td>
+            <td class="phase-col">主力3商品</td>
+            <td class="phase-col">全商品</td>
+            <td class="phase-col kpi-highlight">新商品追加</td>
+          </tr>
+          <tr>
+            <td>月間売上（Amazon）</td>
+            <td class="phase-col">立ち上げ</td>
+            <td class="phase-col">5万円〜</td>
+            <td class="phase-col kpi-highlight">20万円〜</td>
+          </tr>
+          <tr>
+            <td>レビュー件数（各商品）</td>
+            <td class="phase-col">獲得開始</td>
+            <td class="phase-col">10件〜</td>
+            <td class="phase-col kpi-highlight">30件〜</td>
+          </tr>
+          <tr>
+            <td>無断出品の排除</td>
+            <td class="phase-col">棚卸し完了</td>
+            <td class="phase-col">主要品 削除申請済み</td>
+            <td class="phase-col kpi-highlight">完全排除</td>
+          </tr>
+          <tr>
+            <td>Amazon広告 ACoS</td>
+            <td class="phase-col">—</td>
+            <td class="phase-col">30%以下</td>
+            <td class="phase-col kpi-highlight">20%以下</td>
+          </tr>
+          <tr>
+            <td>楽天市場 出店</td>
+            <td class="phase-col">—</td>
+            <td class="phase-col">—</td>
+            <td class="phase-col kpi-highlight">稼働開始</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="table-note">
+        ※ KPIは月次MTGで実績をもとに随時見直します。広告費・競合状況により目標値は変動する場合があります。
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== スライド 10: 費用・体制 ===== -->
+  <div class="slide">
+    <div class="slide-header">
+      <h1>費用・支援体制</h1>
+      <div class="meta">FEE &amp; TEAM STRUCTURE</div>
+    </div>
+    <div class="accent-bar"></div>
+    <div class="slide-body">
+      <div class="fee-block">
+        <div>
+          <div class="fee-label">月額 運用代行費用（岡崎食品コンサルティング全体）</div>
+          <div class="fee-amount">¥190,000<span style="font-size:0.4em; font-weight:400; color:#fff; margin-left:4px;">/ 月（税別）</span></div>
+          <div class="fee-note">Amazon EC運用代行・コンサルティング・月次MTG・レポート作成を含む</div>
+        </div>
+        <div class="fee-divider"></div>
+        <div>
+          <div class="fee-label">含まれる内容</div>
+          <div style="font-size: 0.7em; line-height: 1.8; color: rgba(255,255,255,0.85); margin-top: 4px;">
+            ✓ Amazonアカウント開設・商品ページ作成<br>
+            ✓ ブランドレジストリ申請・無断出品対応<br>
+            ✓ 広告運用（スポンサープロダクト）<br>
+            ✓ 月次レポート＋コンサルMTG（月1回）
+          </div>
+        </div>
+        <div class="fee-divider"></div>
+        <div>
+          <div class="fee-label">別途費用（実費）</div>
+          <div style="font-size: 0.7em; line-height: 1.8; color: rgba(255,255,255,0.85); margin-top: 4px;">
+            ・Amazon広告費（実費）<br>
+            ・Amazonプロフェッショナルプラン ¥4,900/月<br>
+            ・楽天市場 月次費用（出店後）
+          </div>
+        </div>
+      </div>
+      <div class="section-label">支援体制</div>
+      <div class="role-grid">
+        <div class="role-card">
+          <div class="role-name">鈴木（HON）</div>
+          <div class="role-title">プロジェクト責任者・コンサル担当</div>
+          <ul>
+            <li>戦略立案・全体進行管理</li>
+            <li>月次MTGのファシリテート</li>
+            <li>クライアントとの窓口</li>
+          </ul>
+        </div>
+        <div class="role-card">
+          <div class="role-name">HON WEBチーム</div>
+          <div class="role-title">EC運用代行担当</div>
+          <ul>
+            <li>Amazon商品ページ作成・更新</li>
+            <li>広告運用・入札管理</li>
+            <li>月次レポート作成</li>
+          </ul>
+        </div>
+        <div class="role-card">
+          <div class="role-name">岡崎食品 様</div>
+          <div class="role-title">クライアント・情報提供</div>
+          <ul>
+            <li>商品写真・JANコードの提供</li>
+            <li>商標登録の確認・手続き</li>
+            <li>月次MTGへのご参加</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== スライド 11: 次のアクション ===== -->
+  <div class="slide">
+    <div class="slide-header">
+      <h1>次のアクション — まずここから始めます</h1>
+      <div class="meta">NEXT ACTIONS</div>
+    </div>
+    <div class="accent-bar"></div>
+    <div class="slide-body">
+      <div class="action-list">
+        <div class="action-item">
+          <div class="action-num">1</div>
+          <div class="action-content">
+            <div class="action-title">商標登録の有無を確認する</div>
+            <div class="action-detail">ブランドレジストリ申請には商標登録番号が必要です。「岡崎」「納豆麹漬」などの商標登録状況をご確認ください。未登録の場合は弁理士への相談を並行して進めます。</div>
+          </div>
+          <div class="action-owner">岡崎食品 様</div>
+        </div>
+        <div class="action-item">
+          <div class="action-num">2</div>
+          <div class="action-content">
+            <div class="action-title">JANコード・商品写真の素材を共有いただく</div>
+            <div class="action-detail">主力3商品（納豆麹漬・食べるラー油と柿の種・発酵あんバター）のJANコードと高解像度商品写真（白背景推奨）をご用意ください。</div>
+          </div>
+          <div class="action-owner">岡崎食品 様</div>
+        </div>
+        <div class="action-item">
+          <div class="action-num">3</div>
+          <div class="action-content">
+            <div class="action-title">Amazonセラーセントラル アカウント開設に着手</div>
+            <div class="action-detail">法人名義（有限会社岡崎）でのプロフェッショナル出品アカウントを開設します。開設に必要な書類（法人確認書類・銀行口座・クレジットカード）をご準備ください。</div>
+          </div>
+          <div class="action-owner">HON + 岡崎食品</div>
+        </div>
+        <div class="action-item">
+          <div class="action-num">4</div>
+          <div class="action-content">
+            <div class="action-title">既存6件のAmazonページを目視確認する</div>
+            <div class="action-detail">出品者「要確認」となっている4件について、実際のAmazonページで「販売元」「出荷元」を確認し、無断出品の証拠として記録します。HONが実施します。</div>
+          </div>
+          <div class="action-owner">HON</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

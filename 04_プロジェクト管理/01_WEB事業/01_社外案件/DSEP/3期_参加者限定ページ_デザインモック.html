@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSEP 第3期 参加者ページ（デザインモック）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:  #0d1a40;
+    --gold:  #c9a84c;
+    --gold-light: #f5edda;
+    --white: #ffffff;
+    --gray:  #ddddd8;
+    --text:  #222222;
+    --muted: #5a5a5a;
+    --border: #e4e4e0;
+    --live:  #c0392b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--gray);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ─── ナビゲーション ─── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 60px;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-logo .logo-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1em;
+    color: var(--white);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .nav-logo .logo-sub {
+    font-size: 0.68em;
+    color: var(--gold);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+  }
+
+  .nav-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid var(--gold);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.72em;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.78em;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ─── メインレイアウト ─── */
+  .main {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* ─── アテンションバナー ─── */
+  .attention-banner {
+    background: #fffbea;
+    border: 1.5px solid #f0c040;
+    border-left: 5px solid #e6a800;
+    border-radius: 8px;
+    padding: 14px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .attention-icon {
+    font-size: 1.2em;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .attention-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .attention-label {
+    font-size: 0.68em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #a07800;
+    text-transform: uppercase;
+  }
+
+  .attention-text {
+    font-size: 0.88em;
+    font-weight: 700;
+    color: #3a2a00;
+    line-height: 1.5;
+  }
+
+  .attention-sub {
+    font-size: 0.76em;
+    color: #7a6030;
+  }
+
+  /* ─── カード共通 ─── */
+  .card {
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  }
+
+  .card-header {
+    padding: 18px 28px 14px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .card-header h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.05em;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.04em;
+  }
+
+  .card-header .header-sub {
+    font-size: 0.75em;
+    color: var(--muted);
+  }
+
+  .card-body { padding: 24px 28px; }
+
+  /* ─── 次の授業日カード ─── */
+  .next-class {
+    background: var(--navy);
+    border: none;
+  }
+
+  .next-class .card-header {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 18px 28px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .next-class .card-header .next-label {
+    font-size: 0.7em;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .next-class .card-header .next-date {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.15em;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.04em;
+  }
+
+  .next-class .card-header .next-date-sub {
+    font-size: 0.75em;
+    color: rgba(255,255,255,0.45);
+    margin-left: 4px;
+  }
+
+  .next-class .card-body {
+    padding: 20px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* 1コマのカード */
+  .class-slot {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--white);
+    transition: background 0.15s;
+  }
+
+  .class-slot:hover {
+    background: #fafaf8;
+  }
+
+  .slot-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .slot-session {
+    font-size: 0.68em;
+    font-weight: 700;
+    color: #8a6f2e;
+    background: var(--gold-light);
+    border: 1px solid rgba(201,168,76,0.4);
+    padding: 2px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .slot-time {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8em;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .slot-theme {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.55;
+  }
+
+  .slot-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  .slot-meta {
+    font-size: 0.8em;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .slot-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    flex-shrink: 0;
+    justify-content: flex-end;
+  }
+
+  .btn-material {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.78em;
+    font-weight: 700;
+    color: var(--navy);
+    background: var(--gold-light);
+    border: 1px solid var(--gold);
+    padding: 6px 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+
+  .btn-material:hover { background: #eddba8; }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 0.78em;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: opacity 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.75em;
+    padding: 7px 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: #aaa;
+    color: var(--text);
+  }
+
+  .slot-live-note {
+    font-size: 0.68em;
+    color: var(--muted);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .no-live-note {
+    font-size: 0.75em;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ─── スケジュール表 ─── */
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85em;
+  }
+
+  .schedule-table thead tr {
+    background: #f8f8f6;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .schedule-table thead th {
+    padding: 10px 16px;
+    text-align: left;
+    font-size: 0.78em;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .schedule-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+
+  .schedule-table tbody tr:hover { background: #fafaf8; }
+
+  .schedule-table tbody tr.is-next {
+    background: var(--gold-light);
+  }
+
+  .schedule-table tbody tr.is-next:hover {
+    background: #f0e3c0;
+  }
+
+  .schedule-table td {
+    padding: 14px 16px;
+    vertical-align: top;
+  }
+
+  .schedule-table .date-cell {
+    white-space: nowrap;
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  .schedule-table .date-cell .day {
+    display: block;
+    font-size: 1.05em;
+    font-weight: 700;
+  }
+
+  .schedule-table .date-cell .time {
+    font-size: 0.82em;
+    color: var(--muted);
+  }
+
+  .schedule-table .lecturer {
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  .schedule-table .lecturer .org {
+    display: block;
+    font-size: 0.8em;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.72em;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .badge-done  { background: #eef0ee; color: #666; }
+  .badge-next  { background: var(--gold); color: var(--navy); }
+  .badge-plan  { background: #edf2fb; color: #3a6bb5; }
+  .badge-tbd   { background: #f4f4f2; color: #aaa; }
+  .badge-camp  { background: #f0eaf8; color: #7b5ea7; }
+
+  .link-small {
+    font-size: 0.78em;
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .link-small:hover { text-decoration: underline; }
+
+  /* ─── アーカイブ ─── */
+  .archive-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .archive-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 16px;
+  }
+
+  .archive-item:last-child { border-bottom: none; }
+
+  .archive-item .arc-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .arc-thumb {
+    width: 80px;
+    height: 46px;
+    background: var(--navy);
+    border-radius: 5px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+  }
+
+  .arc-info .arc-title {
+    font-size: 0.85em;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+
+  .arc-info .arc-meta {
+    font-size: 0.72em;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .btn-yt {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78em;
+    font-weight: 700;
+    color: var(--navy);
+    background: var(--gold-light);
+    border: 1px solid var(--gold);
+    padding: 6px 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+
+  .btn-yt:hover { background: #eddba8; }
+
+  .arc-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: flex-end;
+    flex-shrink: 0;
+  }
+
+  /* ─── 名簿 ─── */
+  .roster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .member-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    background: #fafaf8;
+    transition: box-shadow 0.2s;
+  }
+
+  .member-card:hover {
+    box-shadow: 0 4px 16px rgba(13,26,64,0.08);
+  }
+
+  .member-avatar {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
+
+  .member-name {
+    font-size: 0.88em;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+
+  .member-org {
+    font-size: 0.72em;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .member-role {
+    font-size: 0.7em;
+    background: var(--gold-light);
+    color: #8a6f2e;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+
+
+  /* ─── 問い合わせ ─── */
+  .contact-block {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .contact-block .c-left h3 {
+    font-family: 'Noto Serif JP', serif;
+    color: var(--white);
+    font-size: 1em;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .contact-block .c-left p {
+    font-size: 0.8em;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  .contact-block .c-right {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: right;
+  }
+
+  .contact-block .c-right a {
+    font-size: 0.82em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  /* ─── フッター ─── */
+  .footer {
+    background: #080f24;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.72em;
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── モックアップ注記 ─── */
+  .mock-note {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 0.78em;
+    color: #856404;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  .divider-gold {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.4;
+  }
+</style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<nav class="nav">
+  <div class="nav-logo">
+    <div>
+      <div class="logo-text">東京大学 DSEP</div>
+      <div class="logo-sub">Disaster Solution Executive Program</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#next">次回授業</a></li>
+    <li><a href="#schedule">スケジュール</a></li>
+    <li><a href="#archive">配信</a></li>
+    <li><a href="#roster">名簿</a></li>
+  </ul>
+  <div class="nav-badge">
+    🔒 第3期 参加者ページ
+  </div>
+</nav>
+
+<div class="main">
+
+  <!-- モックアップ注記 -->
+  <div class="mock-note">
+    ⚠️ これはデザインモックアップです。テキスト・データはすべて仮のサンプルです。
+  </div>
+
+  <!-- アテンションバナー（緊急・重要なお知らせ） -->
+  <div class="attention-banner">
+    <div class="attention-icon">⚠️</div>
+    <div class="attention-body">
+      <div class="attention-label">重要なお知らせ</div>
+      <div class="attention-text">※ 金曜日の授業開始は 18:30 開始です！（17:00ではありません）</div>
+      <div class="attention-sub">2026年5月15日（金）第4回後半講義 — ご注意ください</div>
+    </div>
+  </div>
+
+  <!-- ① 次の授業日（最大3コマ表示） -->
+  <div class="card next-class" id="next">
+    <div class="card-header">
+      <span class="next-label">Next Class</span>
+      <span class="next-date">2026年5月14日（木）<span class="next-date-sub">本郷キャンパス ／ オンライン併用</span></span>
+    </div>
+    <div class="card-body">
+
+      <!-- コマ1 -->
+      <div class="class-slot">
+        <div class="slot-top">
+          <span class="slot-session">第4回 前半講義</span>
+          <span class="slot-time">17:00 〜 18:30</span>
+        </div>
+        <div class="slot-theme">巨大地震と都市インフラ — リーダーが知るべき脆弱性と対策</div>
+        <div class="slot-bottom">
+          <div class="slot-meta">
+            田中 誠一 先生（東京大学生産技術研究所 教授）<br>
+            工学部2号館 213講義室
+          </div>
+          <div class="slot-actions">
+            <a href="#" class="btn-material">📄 講義スライド</a>
+            <a href="#" class="btn-material">📄 参考文献リスト</a>
+            <span class="slot-live-note">Live URL：当日8:00公開</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- コマ2 -->
+      <div class="class-slot">
+        <div class="slot-top">
+          <span class="slot-session">第4回 後半講義</span>
+          <span class="slot-time">18:45 〜 20:00</span>
+        </div>
+        <div class="slot-theme">グループディスカッション — 企業BCPの現実と限界</div>
+        <div class="slot-bottom">
+          <div class="slot-meta">
+            沼田 宗純 先生（東京大学大学院 情報学環 教授）<br>
+            工学部2号館 213講義室
+          </div>
+          <div class="slot-actions">
+            <span class="btn-outline">資料なし</span>
+            <span class="slot-live-note">Live URL：当日8:00公開</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- コマ3 -->
+      <div class="class-slot">
+        <div class="slot-top">
+          <span class="slot-session">懇親会・ネットワーキング</span>
+          <span class="slot-time">20:15 〜 21:00</span>
+        </div>
+        <div class="slot-theme">参加者交流会</div>
+        <div class="slot-bottom">
+          <div class="slot-meta">
+            工学部2号館 1F ラウンジ　／　任意参加
+          </div>
+          <div class="slot-actions">
+            <span class="slot-live-note">配信なし</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ② スケジュール一覧 -->
+  <div class="card" id="schedule">
+    <div class="card-header">
+      <h2>授業スケジュール</h2>
+      <span class="header-sub">2026年度 第3期 全日程</span>
+    </div>
+    <div class="card-body" style="padding: 0;">
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>回</th>
+            <th>日時</th>
+            <th>講師 / テーマ</th>
+            <th>場所</th>
+            <th>ステータス</th>
+            <th>配信</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--muted); font-size:0.8em; white-space:nowrap;">第1回<br>前半/後半</td>
+            <td class="date-cell">
+              <span class="day">4月10日（金）</span>
+              <span class="time">17:00〜20:00</span>
+            </td>
+            <td class="lecturer">
+              沼田 宗純 先生
+              <span class="org">東京大学大学院 情報学環 教授</span>
+              <span class="org" style="color:#aaa;">開講式 / 第1回講義</span>
+            </td>
+            <td style="font-size:0.82em;">本郷キャンパス<br>情報学環・福武ホール</td>
+            <td><span class="badge badge-done">✓ 終了</span></td>
+            <td><a href="#" class="link-small">▶ 前半</a><br><a href="#" class="link-small">▶ 後半</a></td>
+          </tr>
+          <tr>
+            <td style="color:var(--muted); font-size:0.8em; white-space:nowrap;">第2回<br>前半/後半</td>
+            <td class="date-cell">
+              <span class="day">4月24日（金）</span>
+              <span class="time">17:00〜20:00</span>
+            </td>
+            <td class="lecturer">
+              鈴木 花子 先生
+              <span class="org">国立研究開発法人 防災科学技術研究所 主任研究員</span>
+            </td>
+            <td style="font-size:0.82em;">本郷キャンパス<br>工学部2号館 213</td>
+            <td><span class="badge badge-done">✓ 終了</span></td>
+            <td><a href="#" class="link-small">▶ 前半</a><br><a href="#" class="link-small">▶ 後半</a></td>
+          </tr>
+          <tr>
+            <td style="color:var(--muted); font-size:0.8em; white-space:nowrap;">第3回<br>前半/後半</td>
+            <td class="date-cell">
+              <span class="day">5月1日（木）</span>
+              <span class="time">17:00〜20:00</span>
+            </td>
+            <td class="lecturer">
+              山田 太郎 先生
+              <span class="org">東京大学大学院 工学系研究科 教授</span>
+            </td>
+            <td style="font-size:0.82em;">本郷キャンパス<br>工学部2号館 213</td>
+            <td><span class="badge badge-done">✓ 終了</span></td>
+            <td><a href="#" class="link-small">▶ 前半</a><br><a href="#" class="link-small">▶ 後半</a></td>
+          </tr>
+          <tr class="is-next">
+            <td style="color:var(--muted); font-size:0.8em; white-space:nowrap;">第4回<br>前半</td>
+            <td class="date-cell">
+              <span class="day">5月14日（木）</span>
+              <span class="time">17:00〜19:00</span>
+            </td>
+            <td class="lecturer">
+              田中 誠一 先生
+              <span class="org">東京大学生産技術研究所 教授</span>
+            </td>
+            <td style="font-size:0.82em;">本郷キャンパス<br>工学部2号館 213</td>
+            <td><span class="badge badge-next">◎ 次回</span></td>
+            <td style="font-size:0.75em; color:var(--muted);">当日公開</td>
+          </tr>
+          <tr>
+            <td style="color:var(--muted); font-size:0.8em; white-space:nowrap;">第4回<br>後半</td>
+            <td class="date-cell">
+              <span class="day">5月15日（金）</span>
+              <span class="time">17:00〜19:00</span>
+            </td>
+            <td class="lecturer">
+              田中 誠一 先生
+              <span class="org">東京大学生産技術研究所 教授</span>
+            </td>
+            <td style="font-size:0.82em;">本郷キャンパス<br>工学部2号館 213</td>
+            <td><span class="badge badge-plan">予定</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td style="color:var(--muted); font-size:0.8em; white-space:nowrap;">合宿</td>
+            <td class="date-cell">
+              <span class="day">5月30〜31日</span>
+              <span class="time">1泊2日</span>
+            </td>
+            <td class="lecturer">
+              —
+              <span class="org">フィールドワーク・合宿プログラム</span>
+            </td>
+            <td style="font-size:0.82em;">神奈川県 某施設<br>（詳細は別途案内）</td>
+            <td><span class="badge badge-camp">合宿</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td style="color:var(--muted); font-size:0.8em; white-space:nowrap;">第5回〜<br>最終回</td>
+            <td class="date-cell">
+              <span class="day">6月以降</span>
+              <span class="time">—</span>
+            </td>
+            <td class="lecturer">
+              （調整中）
+            </td>
+            <td style="font-size:0.82em;">未定</td>
+            <td><span class="badge badge-tbd">調整中</span></td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ③ 配信アーカイブ -->
+  <div class="card" id="archive">
+    <div class="card-header">
+      <h2>配信アーカイブ</h2>
+      <span class="header-sub">過去の授業を振り返る</span>
+    </div>
+    <div class="card-body">
+      <div class="archive-list">
+        <div class="archive-item">
+          <div class="arc-left">
+            <div class="arc-thumb">▶</div>
+            <div class="arc-info">
+              <div class="arc-title">第1回 前半｜開講式・沼田教授 イントロダクション</div>
+              <div class="arc-meta">2026年4月10日（金）／ 講師：沼田 宗純 先生</div>
+            </div>
+          </div>
+          <div class="arc-actions">
+            <a href="#" class="btn-material">📄 講義スライド</a>
+            <a href="#" class="btn-material">📄 参考文献リスト</a>
+            <a href="#" class="btn-yt">▶ 視聴する</a>
+          </div>
+        </div>
+        <div class="archive-item">
+          <div class="arc-left">
+            <div class="arc-thumb">▶</div>
+            <div class="arc-info">
+              <div class="arc-title">第1回 後半｜日本の災害リスクと経営者の責任</div>
+              <div class="arc-meta">2026年4月10日（金）／ 講師：沼田 宗純 先生</div>
+            </div>
+          </div>
+          <div class="arc-actions">
+            <a href="#" class="btn-material">📄 講義スライド</a>
+            <a href="#" class="btn-yt">▶ 視聴する</a>
+          </div>
+        </div>
+        <div class="archive-item">
+          <div class="arc-left">
+            <div class="arc-thumb">▶</div>
+            <div class="arc-info">
+              <div class="arc-title">第2回 前半｜BCP策定の実践：ケーススタディ</div>
+              <div class="arc-meta">2026年4月24日（金）／ 講師：鈴木 花子 先生</div>
+            </div>
+          </div>
+          <div class="arc-actions">
+            <a href="#" class="btn-material">📄 講義スライド</a>
+            <a href="#" class="btn-material">📄 参考文献リスト</a>
+            <a href="#" class="btn-yt">▶ 視聴する</a>
+          </div>
+        </div>
+        <div class="archive-item">
+          <div class="arc-left">
+            <div class="arc-thumb">▶</div>
+            <div class="arc-info">
+              <div class="arc-title">第2回 後半｜レジリエンスの組織論</div>
+              <div class="arc-meta">2026年4月24日（金）／ 講師：鈴木 花子 先生</div>
+            </div>
+          </div>
+          <div class="arc-actions">
+            <a href="#" class="btn-material">📄 講義スライド</a>
+            <a href="#" class="btn-yt">▶ 視聴する</a>
+          </div>
+        </div>
+        <div class="archive-item">
+          <div class="arc-left">
+            <div class="arc-thumb">▶</div>
+            <div class="arc-info">
+              <div class="arc-title">第3回 前半｜気候変動と企業リスク</div>
+              <div class="arc-meta">2026年5月1日（木）／ 講師：山田 太郎 先生</div>
+            </div>
+          </div>
+          <div class="arc-actions">
+            <a href="#" class="btn-material">📄 講義スライド</a>
+            <a href="#" class="btn-material">📄 参考文献リスト</a>
+            <a href="#" class="btn-yt">▶ 視聴する</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ④ 参加者名簿 -->
+  <div class="card" id="roster">
+    <div class="card-header">
+      <h2>第3期 参加者</h2>
+      <span class="header-sub">掲載許諾済みのメンバーを表示しています</span>
+    </div>
+    <div class="card-body">
+      <div class="roster-grid">
+        <div class="member-card">
+          <div class="member-avatar">KT</div>
+          <div class="member-name">木村 隆司</div>
+          <div class="member-org">株式会社〇〇ホールディングス</div>
+          <div class="member-role">代表取締役社長</div>
+        </div>
+        <div class="member-card">
+          <div class="member-avatar">YS</div>
+          <div class="member-name">山本 幸子</div>
+          <div class="member-org">〇〇建設株式会社</div>
+          <div class="member-role">取締役 専務</div>
+        </div>
+        <div class="member-card">
+          <div class="member-avatar">HN</div>
+          <div class="member-name">中西 博之</div>
+          <div class="member-org">〇〇インフラ株式会社</div>
+          <div class="member-role">執行役員 CRO</div>
+        </div>
+        <div class="member-card">
+          <div class="member-avatar">AO</div>
+          <div class="member-name">大野 明美</div>
+          <div class="member-org">〇〇キャピタル株式会社</div>
+          <div class="member-role">パートナー</div>
+        </div>
+        <div class="member-card">
+          <div class="member-avatar">RK</div>
+          <div class="member-name">河野 良介</div>
+          <div class="member-org">〇〇製薬株式会社</div>
+          <div class="member-role">常務取締役</div>
+        </div>
+        <div class="member-card">
+          <div class="member-avatar">MT</div>
+          <div class="member-name">田村 真由美</div>
+          <div class="member-org">〇〇テクノロジーズ</div>
+          <div class="member-role">代表取締役 CEO</div>
+        </div>
+        <div class="member-card">
+          <div class="member-avatar">JI</div>
+          <div class="member-name">石井 潤一</div>
+          <div class="member-org">〇〇銀行</div>
+          <div class="member-role">頭取補佐</div>
+        </div>
+        <div class="member-card">
+          <div class="member-avatar">SN</div>
+          <div class="member-name">西村 聡</div>
+          <div class="member-org">〇〇不動産</div>
+          <div class="member-role">代表取締役</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="divider-gold"></div>
+
+  <!-- 問い合わせ -->
+  <div class="contact-block">
+    <div class="c-left">
+      <h3>ご不明な点は事務局までご連絡ください</h3>
+      <p>授業の変更・欠席連絡・資料に関するお問い合わせ</p>
+    </div>
+    <div class="c-right">
+      <a href="mailto:dsep@example.ac.jp">📧 dsep@example.ac.jp</a>
+      <a href="#">💬 Slack #dsep-3期</a>
+      <span style="font-size:0.75em; color:rgba(255,255,255,0.35);">担当：中野（東京大学 沼田研究室）</span>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  © 2026 The University of Tokyo DSEP — 本ページは参加者限定コンテンツです
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#%PHP_START%#
+# Make no changes between _START and _END tag, generated automatically.
+AddHandler application/x-lsphp56 .php
+#%PHP_END%#
+

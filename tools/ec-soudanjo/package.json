@@ -1,0 +1,18 @@
+{
+  "name": "ec-soudanjo-scripts",
+  "version": "1.0.0",
+  "description": "すーさんのEC相談所 Shopifyストア書き換えスクリプト（gdzkvq-hn）",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "check": "node --env-file=.env scripts/apply.js check",
+    "backup": "node --env-file=.env scripts/apply.js backup",
+    "products": "node --env-file=.env scripts/apply.js products",
+    "pages": "node --env-file=.env scripts/apply.js pages",
+    "nav": "node --env-file=.env scripts/apply.js nav",
+    "home": "node --env-file=.env scripts/apply.js home",
+    "all": "node --env-file=.env scripts/apply.js all"
+  }
+}
